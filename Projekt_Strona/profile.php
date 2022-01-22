@@ -42,7 +42,11 @@
 					</li>
 
                     <li class="nav-item active">
-						<a class="nav-link" href="#"> Profil </a>
+						<a class="nav-link" href="#"> Profile </a>
+					</li>
+
+                    <li class="nav-item disable">
+						<a class="nav-link" href="logOut.php"> Log out </a>
 					</li>
 					
 					
