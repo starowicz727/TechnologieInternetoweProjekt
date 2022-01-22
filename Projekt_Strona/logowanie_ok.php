@@ -129,9 +129,9 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
     }
     
     if(($rekord = $wynik -> fetch_assoc()) != null){ // gdy mamy już dodany jakiś folder
+        echo"<table>";
         while(($rekord = $wynik -> fetch_assoc()) != null) 
         {
-            echo"<table>";
             echo "<tr><td>".$rekord["name"];
             echo "<td><a href=dodaj_fiszki_do_kategorii.php?categ_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id kategorii
         }
