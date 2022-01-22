@@ -110,36 +110,37 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
 //jesli użytkownik sie zalogował 
 echo "Cześć ".$_SESSION["login"];
 echo "Twoje fiszki:";
+show_folders();
 
 echo "<form method=post action=dodaj_kategorie.php>";
 echo "<input type=submit value='Stwórz nowy folder'>";
 echo "</form>";
 
-show_folders();
+
 
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
     require_once("connect.php"); // łączymy się z bazą danych
 
     $users_login = $_SESSION["login"];
-    $sql = "SELECT name FROM flashcards,categories WHERE flashcards.category_name = categories.name AND categories.user_login = $users_login";
-    $wynik = $polaczenie -> query($sql);
-
+    $sql = "SELECT * FROM flashcards,categories WHERE flashcards.category_name = categories.name AND categories.user_login = \"$users_login \"";
+    $wynik = $conn -> query($sql);
     if($wynik == false){ 
         echo "bledne polecenie sql".$sql;  
         exit;
     }
-        echo "<table border><th>ID<th>Imie<th>Nazwisko";
+    
+    if(($rekord = $wynik -> fetch_assoc()) != null){ // gdy mamy już dodany jakiś folder
         while(($rekord = $wynik -> fetch_assoc()) != null) 
-    {
-    echo "<tr><td>".$rekord["id"];
-    echo "<td>".$rekord["imie"];
-    echo "<td>".$rekord["nazwisko"];
-    echo "<td><a href=9.3delete.php?id_stud=$rekord[id]>";
-    echo"<img alt=\"delete\" src=\"delete-button.png\">";
-    echo"</a>";
-    echo "<td><a href=9.3update_form.php?id_stud=$rekord[id]>edytuj</a>";
+        {
+        echo "<tr><td>".$rekord["name"];
+        echo "<td><a href=edytuj_kategorie.php?categ_name=$rekord[name]>edytuj</a>";
+        }
+        echo "</table>";
     }
-echo "</table>";
+    else{
+        echo "Nie masz jeszcze żadnych folderów. Utwórz pierwszy folder:";
+    }
+    
 
 }
 
