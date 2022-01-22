@@ -106,33 +106,29 @@ if(isset($_POST["frm_name_categ"])) //jelsi dodaj_kategorie.php nie byl uruchomi
 {
     require_once("connect.php"); // łączymy się z bazą danych
     $users_login = $_SESSION["login"];
-    // $sql = "select * from categories where name=? and user_login= \"".$users_login."\""; //sprawdzamy czy dany kategoria jest już utworzona
-    // $prep = $conn -> prepare($sql);
-    // $prep -> bind_param('s',$_POST['frm_name_categ']); 
-    // $prep -> execute(); // tu się wykona select
-    // $result = $prep -> get_result();
-
-    // if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => taki folder istnieje=> dodawanie nie powinno się udać
-    //     echo"Posiadasz już folder o takiej nazwie";
-    // }
-    // nazwa nie jest zajęta => tworzymy folder 
-        $sql = "insert into categories (name, user_login) values (?,?)";
-        $prep = $conn -> prepare($sql);
-        $prep -> bind_param('ss',$_POST['frm_name_categ'], $users_login); 
-        $result = $prep -> execute(); // tu się wykona insert
-        if($result){//jeśli się udało
-			$last_id = $conn->insert_id; // metoda zwraca ID ostatnio dodanego rekordu
-            $_SESSION["category_id"] = $last_id;		// zapisujemy w sesji ID kategorii którą dodaliśmy
-            header("Location: dodaj_fiszki_do_kategorii.php"); //tu przechodzimy do kolejnego skryptu
-        }
     
+    $sql = "insert into categories (name, user_login) values (?,?)";
+    $prep = $conn -> prepare($sql);
+    $prep -> bind_param('ss',$_POST['frm_name_categ'], $users_login); 
+    $result = $prep -> execute(); // tu się wykona insert
+
+    if($result){//jeśli się udało
+		$last_id = $conn->insert_id; // metoda zwraca ID ostatnio dodanego rekordu
+        $_SESSION["category_id"] = $last_id;		// zapisujemy w sesji ID kategorii którą dodaliśmy
+        header("Location: dodaj_fiszki_do_kategorii.php"); //tu przechodzimy do kolejnego skryptu
+    }else{
+        show_categ_form();
+    }
 }
 else{
+   show_categ_form();
+}
+
+function show_categ_form(){
     echo "<form method=post action=dodaj_kategorie.php>";
     echo "<input name=frm_name_categ required=\"required\">Nazwa folderu</br>"; 
     echo "<input type=submit value=Stwórz>";
     echo "</form>";
 }
-
 
 ?>

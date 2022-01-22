@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_kategorie.php nie byl uruchomiony po raz pierwszy
+if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_fiszki_do_kategorii.php nie byl uruchomiony po raz pierwszy
 {
     require_once("connect.php"); // łączymy się z bazą danych
 
