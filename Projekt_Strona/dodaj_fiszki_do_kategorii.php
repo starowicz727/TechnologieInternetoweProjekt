@@ -34,5 +34,8 @@ else{
     echo "</form>";
 }
 
+function show_flashcards(){
+    
+}
 
 ?>

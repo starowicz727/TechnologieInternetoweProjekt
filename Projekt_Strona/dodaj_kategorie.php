@@ -100,31 +100,28 @@
 
 
 <?php
-if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_kategorie.php nie byl uruchomiony po raz pierwszy
+session_start();
+
+if(isset($_POST["frm_name_categ"])) //jelsi dodaj_kategorie.php nie byl uruchomiony po raz pierwszy
 {
     require_once("connect.php"); // łączymy się z bazą danych
-
-    $sql = "select * from users where login=?"; //sprawdzamy czy dany login jest zajęty
+    $users_login = $_SESSION["login"];
+    $sql = "select * from categories where name=? and user_login= \"".$users_login."\""; //sprawdzamy czy dany kategoria jest już utworzona
     $prep = $conn -> prepare($sql);
-    $prep -> bind_param('s',$_POST['re_login']); 
+    $prep -> bind_param('s',$_POST['frm_name_categ']); 
     $prep -> execute(); // tu się wykona select
     $result = $prep -> get_result();
 
-    if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> rejestracja nie powinna się udać
-        echo"Podany login jest już zajęty :(";
+    if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => taki folder istnieje=> dodawanie nie powinno się udać
+        echo"Posiadasz już folder o takiej nazwie";
     }
-    else{ // login nie jest zajęty => tworzymy konto 
-        $sql = "insert into users (login, password) values (?,?)";
+    else{ // nazwa nie jest zajęta => tworzymy folder 
+        $sql = "insert into categories (name, user_login) values (?,?)";
         $prep = $conn -> prepare($sql);
-        $hash_pass = sha1($_POST['re_pass']);
-        $prep -> bind_param('ss',$_POST['re_login'], $hash_pass); 
+        $prep -> bind_param('ss',$_POST['frm_name_categ'], $users_login); 
         $result = $prep -> execute(); // tu się wykona insert
         if($result){//jeśli się udało
-            echo "Konto zostało utworzone! Możesz się zalogować"; 
-            echo "<form method=post action=logowanie.php>";
-            echo "<input type=submit value=Powrót do logowania>";
-            echo "</form>";
-            //header("Location: logowanie.php"); //tu przechodzimy do kolejnego skryptu
+            header("Location: dodaj_fiszki_do_kategorii.php"); //tu przechodzimy do kolejnego skryptu
         }
     }
 }
