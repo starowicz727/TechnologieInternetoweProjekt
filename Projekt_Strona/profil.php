@@ -37,12 +37,12 @@
 			
 				<ul class="navbar-nav mr-auto">
 				
-					<li class="nav-item active">
-						<a class="nav-link" href="#"> Home </a>
+					<li class="nav-item disable">
+						<a class="nav-link" href="logowanie_ok.php"> Home </a>
 					</li>
 
-                    <li class="nav-item disable">
-						<a class="nav-link" href="profil.php"> Profil </a>
+                    <li class="nav-item active">
+						<a class="nav-link" href="#"> Profil </a>
 					</li>
 					
 					
@@ -103,40 +103,14 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
     exit;
 }
 
-//jesli użytkownik sie zalogował 
-echo "Cześć ".$_SESSION["login"];
-echo "Twoje fiszki:";
+echo "Twój profil :)";
 
-echo "<form method=post action=dodaj_kategorie.php>";
-echo "<input type=submit value='Stwórz nowy folder'>";
-echo "</form>";
+// //jesli użytkownik sie zalogował 
+// echo "Cześć ".$_SESSION["login"];
+// echo "Twoje fiszki:";
 
-show_folders();
-
-function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
-    require_once("connect.php"); // łączymy się z bazą danych
-
-    $users_login = $_SESSION["login"];
-    $sql = "SELECT name FROM flashcards,categories WHERE flashcards.category_name = categories.name AND categories.user_login = $users_login";
-    $wynik = $polaczenie -> query($sql);
-
-    if($wynik == false){ 
-        echo "bledne polecenie sql".$sql;  
-        exit;
-    }
-        echo "<table border><th>ID<th>Imie<th>Nazwisko";
-        while(($rekord = $wynik -> fetch_assoc()) != null) 
-    {
-    echo "<tr><td>".$rekord["id"];
-    echo "<td>".$rekord["imie"];
-    echo "<td>".$rekord["nazwisko"];
-    echo "<td><a href=9.3delete.php?id_stud=$rekord[id]>";
-    echo"<img alt=\"delete\" src=\"delete-button.png\">";
-    echo"</a>";
-    echo "<td><a href=9.3update_form.php?id_stud=$rekord[id]>edytuj</a>";
-    }
-echo "</table>";
-
-}
+// echo "<form method=post action=dodaj_kategorie.php>";
+// echo "<input type=submit value='Stwórz nowy folder'>";
+// echo "</form>";
 
 ?>
