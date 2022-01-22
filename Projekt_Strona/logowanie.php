@@ -6,7 +6,8 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
 
     $sql = "select * from users where login=? and password=?";
     $prep = $conn -> prepare($sql);
-    $prep -> bind_param('ss',$_POST['frm_login'],sha1($_POST['frm_pass'])); 
+    $hash_pass = sha1($_POST['frm_pass']);
+    $prep -> bind_param('ss',$_POST['frm_login'], $hash_pass); 
     $prep -> execute(); // tu się wykona select
     $result = $prep -> get_result();
 
@@ -21,8 +22,8 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
 }
 
 echo "<form method=post action=logowanie.php>";
-echo "<input name=frm_login>Login</br>"; 
-echo "<input type=password name=frm_pass>Haslo</br>";
+echo "<input name=frm_login required=\"required\">Login</br>"; 
+echo "<input type=password name=frm_pass required=\"required\">Haslo</br>";
 echo "<input type=submit value=Logowanie>";
 echo "</form>";
 
