@@ -18,4 +18,6 @@ echo "<input type=password name=frm_pass>Haslo</br>";
 echo "<input type=submit value=Logowanie>";
 echo "</form>";
 
+echo "<a href=\"rejestracja.php\">Nie masz konta? Zarejestruj się</a>";
+
 ?>
