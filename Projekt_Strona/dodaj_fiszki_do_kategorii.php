@@ -1,38 +1,35 @@
 <?php
-if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_fiszki_do_kategorii.php nie byl uruchomiony po raz pierwszy
-{
-    require_once("connect.php"); // łączymy się z bazą danych
+session_start();
+$added_category = $_SESSION["category_last_id"];
 
-    $sql = "select * from users where login=?"; //sprawdzamy czy dany login jest zajęty
-    $prep = $conn -> prepare($sql);
-    $prep -> bind_param('s',$_POST['re_login']); 
-    $prep -> execute(); // tu się wykona select
-    $result = $prep -> get_result();
-
-    if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> rejestracja nie powinna się udać
-        echo"Podany login jest już zajęty :(";
-    }
-    else{ // login nie jest zajęty => tworzymy konto 
-        $sql = "insert into users (login, password) values (?,?)";
-        $prep = $conn -> prepare($sql);
-        $hash_pass = sha1($_POST['re_pass']);
-        $prep -> bind_param('ss',$_POST['re_login'], $hash_pass); 
-        $result = $prep -> execute(); // tu się wykona insert
-        if($result){//jeśli się udało
-            echo "Konto zostało utworzone! Możesz się zalogować"; 
-            echo "<form method=post action=logowanie.php>";
-            echo "<input type=submit value=Powrót do logowania>";
-            echo "</form>";
-            //header("Location: logowanie.php"); //tu przechodzimy do kolejnego skryptu
-        }
-    }
-}
-else{
-    
-}
+echo "folder: ".$added_category;
+flashcard_form();
+show_flashcards();
+add_flashcard();
 
 function show_flashcards(){
-
+    require_once("connect.php"); // łączymy się z bazą danych
+    $sql = "SELECT * FROM flashcards WHERE category_id = ". $added_category;
+    $wynik = $conn -> query($sql);
+    if($wynik == false){ 
+        echo "bledne polecenie sql".$sql;  
+        exit;
+    }
+    else{
+        echo "<table border><th>Term<th>Definition";
+        while(($rekord = $wynik -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
+        {
+            echo"<table>";
+            echo "<tr><td>".$rekord["term"];
+            echo "<tr><td>".$rekord["definition"];
+            echo "<td><a href=edytuj_fiszke.php?flashcard_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id fiszki
+            echo "<td><a href=usun_fiszke.php?flashcard_id=$rekord[id]>";
+            echo"<img alt=\"delete\" src=\"delete-button.png\">";
+            echo"</a>";
+        }
+        echo "</table>";
+    }
+    
 }
 
 function flashcard_form(){
@@ -41,6 +38,24 @@ function flashcard_form(){
     echo "<input name=frm_flash_def required=\"required\">Definition</br>"; 
     echo "<input type=submit value=Stwórz>";
     echo "</form>";
+}
+
+function add_flashcard(){
+    if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi dodaj_fiszki_do_kategorii.php nie byl uruchomiony po raz pierwszy
+    {
+        require_once("connect.php"); // łączymy się z bazą danych
+
+        $sql = "insert into flashcards (term, definition,category_id) values (?,?,?)";
+        $prep = $conn -> prepare($sql);
+        $prep -> bind_param('ssi',$_POST['frm_flash_term'], $_POST['frm_flash_def'], $added_category); 
+        $result = $prep -> execute(); // tu się wykona insert
+        if($result){//jeśli się udało
+            header("Location: logowanie.php"); //tu załadujemy stronę od nowa, żeby wyświetlić dodaną fiszkę
+        }
+        else{
+            echo "błąd dodania fiszki";
+        }
+    }
 }
 
 ?>

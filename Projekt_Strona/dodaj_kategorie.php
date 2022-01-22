@@ -114,7 +114,7 @@ if(isset($_POST["frm_name_categ"])) //jelsi dodaj_kategorie.php nie byl uruchomi
 
     if($result){//jeśli się udało
 		$last_id = $conn->insert_id; // metoda zwraca ID ostatnio dodanego rekordu
-        $_SESSION["category_id"] = $last_id;		// zapisujemy w sesji ID kategorii którą dodaliśmy
+        $_SESSION["category_last_id"] = $last_id;		// zapisujemy w sesji ID kategorii którą przed chwilą dodaliśmy
         header("Location: dodaj_fiszki_do_kategorii.php"); //tu przechodzimy do kolejnego skryptu
     }else{
         show_categ_form();
