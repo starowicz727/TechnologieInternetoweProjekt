@@ -16,12 +16,7 @@
 		<br/>
 		<button type="submit">Log in</button>
 		</form>
-		
-		
-
-
-
-
+	
 	</body>
 
 
