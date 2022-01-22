@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.php nie byl uruchomiony po raz pierwszy
+if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_kategorie.php nie byl uruchomiony po raz pierwszy
 {
     require_once("connect.php"); // łączymy się z bazą danych
 
@@ -11,7 +11,6 @@ if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.ph
 
     if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> rejestracja nie powinna się udać
         echo"Podany login jest już zajęty :(";
-        show_form();
     }
     else{ // login nie jest zajęty => tworzymy konto 
         $sql = "insert into users (login, password) values (?,?)";
@@ -22,24 +21,18 @@ if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.ph
         if($result){//jeśli się udało
             echo "Konto zostało utworzone! Możesz się zalogować"; 
             echo "<form method=post action=logowanie.php>";
-            echo "<input type=submit value='Powrót do logowania'>";
+            echo "<input type=submit value=Powrót do logowania>";
             echo "</form>";
             //header("Location: logowanie.php"); //tu przechodzimy do kolejnego skryptu
         }
     }
 }
 else{
-    show_form();
-}
-
-function show_form(){
-    echo "<form method=post action=rejestracja.php>";
-    echo "<input name=re_login required=\"required\">Login</br>"; 
-    echo "<input type=password name=re_pass required=\"required\">Haslo</br>";
-    echo "<input type=submit value=Zarejestruj>";
+    echo "<form method=post action=dodaj_kategorie.php>";
+    echo "<input name=frm_name_categ required=\"required\">Nazwa folderu</br>"; 
+    echo "<input type=submit value=Stwórz>";
     echo "</form>";
-
-    echo "<a href=\"logowanie.php\">Powrót na stronę główną</a>";
 }
+
 
 ?>
