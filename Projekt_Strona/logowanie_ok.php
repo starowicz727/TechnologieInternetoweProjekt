@@ -111,7 +111,6 @@ echo "<form method=post action=dodaj_kategorie.php>";
 echo "<input type=submit value='Stwórz nowy folder'>";
 echo "</form>";
 
-<<<<<<< Updated upstream
 show_folders();
 
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
@@ -138,8 +137,5 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
 echo "</table>";
 
 }
-=======
->>>>>>> Stashed changes
-
 
 ?>
