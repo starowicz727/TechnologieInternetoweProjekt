@@ -29,23 +29,23 @@
 		
 			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
 		
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 		
 			<div class="collapse navbar-collapse" id="mainmenu">
 			
-				<ul class="navbar-nav mr-auto">
+				<ul class="navbar-nav">
 				
-					<li class="nav-item active">
+					<li class="nav-item">
 						<a class="nav-link" href="#"> Home </a>
 					</li>
 
-                    <li class="nav-item disable">
+                    <li class="nav-item">
 						<a class="nav-link" href="profile.php"> Profile </a>
 					</li>
 
-                    <li class="nav-item disable">
+                    <li class="nav-item">
 						<a class="nav-link" href="logOut.php"> Log out </a>
 					</li>
 					
