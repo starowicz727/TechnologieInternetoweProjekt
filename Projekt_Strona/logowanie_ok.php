@@ -116,13 +116,12 @@ echo "<form method=post action=dodaj_kategorie.php>";
 echo "<input type=submit value='Stwórz nowy folder'>";
 echo "</form>";
 
-
-
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
     require_once("connect.php"); // łączymy się z bazą danych
 
     $users_login = $_SESSION["login"];
-    $sql = "SELECT * FROM categories WHERE categories.user_login = \"$users_login \"";
+    //$sql = "SELECT * FROM categories WHERE categories.user_login = \"$users_login \"";
+    $sql = "SELECT * FROM categories WHERE user_login = \"$users_login \"";
     $wynik = $conn -> query($sql);
     if($wynik == false){ 
         echo "bledne polecenie sql".$sql;  
