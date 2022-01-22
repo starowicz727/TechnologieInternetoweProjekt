@@ -106,8 +106,7 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
     header("Location: logowanie.php");
     exit;
 }
-
-//echo "Wylogowywanie";
+//jeśli użytkownik był zalogowany to właśnie zostaje wylogowany: 
 session_destroy(); 
 header("Location: logowanie.php");
 
