@@ -109,6 +109,13 @@ echo "<form method=post action=dodaj_kategorie.php>";
 echo "<input type=submit value='Stwórz nowy folder'>";
 echo "</form>";
 
+show_folders();
+
+function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
+    require_once("connect.php"); // łączymy się z bazą danych
+
+
+}
 
 
 ?>
