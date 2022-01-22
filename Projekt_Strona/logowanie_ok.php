@@ -38,10 +38,15 @@
 				<ul class="navbar-nav mr-auto">
 				
 					<li class="nav-item active">
-						<a class="nav-link" href="#"> Start </a>
+						<a class="nav-link" href="#"> Home </a>
+					</li>
+
+                    <li class="nav-item disable">
+						<a class="nav-link" href="profil.php"> Profil </a>
 					</li>
 					
-					<li class="nav-item dropdown">
+					
+					<!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
 						
 						<div class="dropdown-menu" aria-labelledby="submenu">
@@ -56,13 +61,10 @@
 						
 						</div>
 						
-					</li>
+					</li> -->
 					
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Historia </a>
-					</li>
-					
-					<li class="nav-item">
+
+					<!-- <li class="nav-item">
 						<a class="nav-link" href="#"> Zdjęcia </a>
 					</li>
 					
@@ -72,16 +74,16 @@
 					
 					<li class="nav-item">
 						<a class="nav-link" href="#"> Kontakt </a>
-					</li>
+					</li> -->
 				
 				</ul>
 			
-				<form class="form-inline">
+				<!-- <form class="form-inline">
 				
 					<input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
 					<button class="btn btn-light" type="submit">Znajdź</button>
 				
-				</form>
+				</form> -->
 			
 			</div>
 		
@@ -109,6 +111,7 @@ echo "<form method=post action=dodaj_kategorie.php>";
 echo "<input type=submit value='Stwórz nowy folder'>";
 echo "</form>";
 
+<<<<<<< Updated upstream
 show_folders();
 
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
@@ -135,6 +138,8 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
 echo "</table>";
 
 }
+=======
+>>>>>>> Stashed changes
 
 
 ?>
