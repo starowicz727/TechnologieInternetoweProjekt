@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Sty 2022, 13:15
+-- Czas generowania: 22 Sty 2022, 14:11
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.11
 
@@ -29,16 +29,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `name` varchar(60) COLLATE utf8mb4_polish_ci NOT NULL,
-  `user_login` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `flashcard_id` int(11) DEFAULT NULL
+  `user_login` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
 -- Zrzut danych tabeli `categories`
 --
 
-INSERT INTO `categories` (`name`, `user_login`, `flashcard_id`) VALUES
-('angielski', 'login1', 1);
+INSERT INTO `categories` (`name`, `user_login`) VALUES
+('angielski', 'login1');
 
 -- --------------------------------------------------------
 
