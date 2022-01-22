@@ -108,6 +108,7 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
 }
 
 echo "Twój profil :)";
+echo "Login: ". $_SESSION["login"];
 
 // //jesli użytkownik sie zalogował 
 // echo "Cześć ".$_SESSION["login"];
