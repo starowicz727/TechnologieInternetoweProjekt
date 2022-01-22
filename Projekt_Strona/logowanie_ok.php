@@ -114,6 +114,25 @@ show_folders();
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
     require_once("connect.php"); // łączymy się z bazą danych
 
+    $sql = "select * from studenci";
+    $wynik = $polaczenie -> query($sql);
+
+    if($wynik == false){ 
+        echo "bledne polecenie sql".$sql;  
+        exit;
+    }
+        echo "<table border><th>ID<th>Imie<th>Nazwisko";
+        while(($rekord = $wynik -> fetch_assoc()) != null) 
+    {
+    echo "<tr><td>".$rekord["id"];
+    echo "<td>".$rekord["imie"];
+    echo "<td>".$rekord["nazwisko"];
+    echo "<td><a href=9.3delete.php?id_stud=$rekord[id]>";
+    echo"<img alt=\"delete\" src=\"delete-button.png\">";
+    echo"</a>";
+    echo "<td><a href=9.3update_form.php?id_stud=$rekord[id]>edytuj</a>";
+    }
+echo "</table>";
 
 }
 
