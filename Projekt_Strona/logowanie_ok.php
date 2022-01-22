@@ -8,6 +8,13 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
 }
 
 //jesli użytkownik sie zalogował 
-echo "witaj w aplikacji ".$_SESSION["login"];
+echo "Cześć ".$_SESSION["login"];
+echo "Twoje fiszki:";
+
+echo "<form method=post action=dodaj_kategorie.php>";
+echo "<input type=submit value='Stwórz nowy folder'>";
+echo "</form>";
+
+
 
 ?>
