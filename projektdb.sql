@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Sty 2022, 12:53
+-- Czas generowania: 22 Sty 2022, 13:15
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.11
 
@@ -33,6 +33,13 @@ CREATE TABLE `categories` (
   `flashcard_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
+--
+-- Zrzut danych tabeli `categories`
+--
+
+INSERT INTO `categories` (`name`, `user_login`, `flashcard_id`) VALUES
+('angielski', 'login1', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -43,9 +50,15 @@ CREATE TABLE `flashcards` (
   `id` int(11) NOT NULL,
   `term` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL,
   `definition` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `login` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL,
   `category_name` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `flashcards`
+--
+
+INSERT INTO `flashcards` (`id`, `term`, `definition`, `category_name`) VALUES
+(1, 'ddd', 'www', 'angielski');
 
 -- --------------------------------------------------------
 
@@ -57,6 +70,13 @@ CREATE TABLE `users` (
   `login` varchar(30) COLLATE utf8mb4_polish_ci NOT NULL,
   `password` char(255) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Zrzut danych tabeli `users`
+--
+
+INSERT INTO `users` (`login`, `password`) VALUES
+('login1', 'asdawdas');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -74,7 +94,6 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `flashcards`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `login` (`login`),
   ADD KEY `category_name` (`category_name`);
 
 --
@@ -91,7 +110,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `flashcards`
 --
 ALTER TABLE `flashcards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -107,7 +126,6 @@ ALTER TABLE `categories`
 -- Ograniczenia dla tabeli `flashcards`
 --
 ALTER TABLE `flashcards`
-  ADD CONSTRAINT `flashcards_ibfk_1` FOREIGN KEY (`login`) REFERENCES `users` (`login`),
   ADD CONSTRAINT `flashcards_ibfk_2` FOREIGN KEY (`category_name`) REFERENCES `categories` (`name`);
 COMMIT;
 
