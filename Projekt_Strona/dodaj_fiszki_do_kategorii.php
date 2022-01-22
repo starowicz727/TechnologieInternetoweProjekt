@@ -28,14 +28,19 @@ if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi dodaj_kategori
     }
 }
 else{
-    echo "<form method=post action=dodaj_kategorie.php>";
-    echo "<input name=frm_name_categ required=\"required\">Nazwa folderu</br>"; 
-    echo "<input type=submit value=Stwórz>";
-    echo "</form>";
+    
 }
 
 function show_flashcards(){
-    
+
+}
+
+function flashcard_form(){
+    echo "<form method=post action=dodaj_fiszki_do_kategorii.php>";
+    echo "<input name=frm_flash_term required=\"required\">Term</br>"; 
+    echo "<input name=frm_flash_def required=\"required\">Definition</br>"; 
+    echo "<input type=submit value=Stwórz>";
+    echo "</form>";
 }
 
 ?>

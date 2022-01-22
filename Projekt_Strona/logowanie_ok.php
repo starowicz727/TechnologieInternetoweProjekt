@@ -133,7 +133,7 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
         while(($rekord = $wynik -> fetch_assoc()) != null) 
         {
         echo "<tr><td>".$rekord["name"];
-        echo "<td><a href=edytuj_kategorie.php?categ_name=$rekord[name]>edytuj</a>";
+        echo "<td><a href=edytuj_kategorie.php?categ_name=$rekord[name]>edytuj</a>"; //tu przesyłamy id kategorii
         }
         echo "</table>";
     }
