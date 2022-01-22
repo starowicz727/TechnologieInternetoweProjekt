@@ -59,4 +59,12 @@ if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi do
         }
     }
 
+    //////////////////////4. mozliwosc usuniecia calego folderu z fiszkami /////////////////
+
+    echo "<form method=post action=usun_kategorie.php>";
+    echo "<input type=submit value='Usuń ten folder'>";
+    echo "</form>";
+
+
+
 ?>
