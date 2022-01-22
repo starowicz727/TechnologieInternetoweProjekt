@@ -122,7 +122,7 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
     require_once("connect.php"); // łączymy się z bazą danych
 
     $users_login = $_SESSION["login"];
-    $sql = "SELECT * FROM flashcards,categories WHERE categories.user_login = \"$users_login \" AND flashcards.category_id = categories.id";
+    $sql = "SELECT * FROM categories WHERE categories.user_login = \"$users_login \"";
     $wynik = $conn -> query($sql);
     if($wynik == false){ 
         echo "bledne polecenie sql".$sql;  
