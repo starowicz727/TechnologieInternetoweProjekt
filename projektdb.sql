@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 22 Sty 2022, 14:11
+-- Czas generowania: 22 Sty 2022, 15:39
 -- Wersja serwera: 10.4.21-MariaDB
 -- Wersja PHP: 8.0.11
 
@@ -28,16 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `categories` (
-  `name` varchar(60) COLLATE utf8mb4_polish_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL,
   `user_login` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
-
---
--- Zrzut danych tabeli `categories`
---
-
-INSERT INTO `categories` (`name`, `user_login`) VALUES
-('angielski', 'login1');
 
 -- --------------------------------------------------------
 
@@ -47,17 +41,10 @@ INSERT INTO `categories` (`name`, `user_login`) VALUES
 
 CREATE TABLE `flashcards` (
   `id` int(11) NOT NULL,
-  `term` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `definition` varchar(255) COLLATE utf8mb4_polish_ci DEFAULT NULL,
-  `category_name` varchar(60) COLLATE utf8mb4_polish_ci DEFAULT NULL
+  `term` varchar(128) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `definition` varchar(128) COLLATE utf8mb4_polish_ci DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
-
---
--- Zrzut danych tabeli `flashcards`
---
-
-INSERT INTO `flashcards` (`id`, `term`, `definition`, `category_name`) VALUES
-(1, 'ddd', 'www', 'angielski');
 
 -- --------------------------------------------------------
 
@@ -71,13 +58,6 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
--- Zrzut danych tabeli `users`
---
-
-INSERT INTO `users` (`login`, `password`) VALUES
-('login1', 'asdawdas');
-
---
 -- Indeksy dla zrzutów tabel
 --
 
@@ -85,7 +65,7 @@ INSERT INTO `users` (`login`, `password`) VALUES
 -- Indeksy dla tabeli `categories`
 --
 ALTER TABLE `categories`
-  ADD PRIMARY KEY (`name`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `user_login` (`user_login`);
 
 --
@@ -93,7 +73,7 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `flashcards`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `category_name` (`category_name`);
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indeksy dla tabeli `users`
@@ -106,10 +86,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT dla tabeli `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT dla tabeli `flashcards`
 --
 ALTER TABLE `flashcards`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Ograniczenia dla zrzutów tabel
@@ -125,7 +111,7 @@ ALTER TABLE `categories`
 -- Ograniczenia dla tabeli `flashcards`
 --
 ALTER TABLE `flashcards`
-  ADD CONSTRAINT `flashcards_ibfk_2` FOREIGN KEY (`category_name`) REFERENCES `categories` (`name`);
+  ADD CONSTRAINT `flashcards_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
