@@ -121,7 +121,8 @@ if(isset($_POST["frm_name_categ"])) //jelsi dodaj_kategorie.php nie byl uruchomi
         $prep -> bind_param('ss',$_POST['frm_name_categ'], $users_login); 
         $result = $prep -> execute(); // tu się wykona insert
         if($result){//jeśli się udało
-            $_SESSION["category_name"] = $_POST['frm_name_categ'];
+			$last_id = $conn->insert_id; // metoda zwraca ID ostatnio dodanego rekordu
+            $_SESSION["category_id"] = $last_id;		// zapisujemy w sesji ID kategorii którą dodaliśmy
             header("Location: dodaj_fiszki_do_kategorii.php"); //tu przechodzimy do kolejnego skryptu
         }
     
