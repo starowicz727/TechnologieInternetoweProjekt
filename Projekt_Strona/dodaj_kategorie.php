@@ -37,8 +37,8 @@
 			
 				<ul class="navbar-nav mr-auto">
 				
-					<li class="nav-item active">
-						<a class="nav-link" href="#"> Home </a>
+					<li class="nav-item disable">
+						<a class="nav-link" href="logowanie_ok.php"> Home </a>
 					</li>
 
                     <li class="nav-item disable">
