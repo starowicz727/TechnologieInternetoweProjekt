@@ -5,10 +5,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<title>Skoki narciarskie</title>
-	<meta name="description" content="Blog o skokach narciarskich">
-	<meta name="keywords" content="skoki narciarskie, skoczkowie, wyniki">
-	<meta name="author" content="Jan Kowalski">
+	<title>Fiszki</title>
+	<meta name="description" content="Strona z fiszkami">
+	<meta name="keywords" content="fiszki, nauka">
+	<meta name="author" content="Grupa1">
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
