@@ -20,11 +20,11 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
         echo"Błąd logowania"; //tu wracamy do ponownego logowania, bo nie udało się zalogować
     }
 }
-
+echo"Logowanie";
 echo "<form method=post action=logowanie.php>";
 echo "<input name=frm_login required=\"required\">Login</br>"; 
 echo "<input type=password name=frm_pass required=\"required\">Haslo</br>";
-echo "<input type=submit value=Logowanie>";
+echo "<input type=submit value=Zaloguj>";
 echo "</form>";
 
 echo "<a href=\"rejestracja.php\">Nie masz konta? Zarejestruj się</a>";
