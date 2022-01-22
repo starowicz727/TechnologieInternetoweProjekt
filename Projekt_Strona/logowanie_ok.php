@@ -114,7 +114,8 @@ show_folders();
 function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kategorie 
     require_once("connect.php"); // łączymy się z bazą danych
 
-    $sql = "select * from studenci";
+    $users_login = $_SESSION["login"];
+    $sql = "SELECT name FROM flashcards,categories WHERE flashcards.category_name = categories.name AND categories.user_login = $users_login";
     $wynik = $polaczenie -> query($sql);
 
     if($wynik == false){ 
