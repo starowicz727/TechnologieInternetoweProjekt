@@ -1,6 +1,6 @@
 <?php
 session_start();
-$added_category = $_SESSION["category_last_id"];
+$added_category = $_GET["categ_id"];
 require_once("connect.php"); // łączymy się z bazą danych
 
 /////////////////////////////0.na górze strony wyświetlamy nazwę folderu///////////////////////////////////
@@ -23,7 +23,6 @@ echo "<input type=submit value=Add>";
 echo "</form>";
 
 /////////////////////////////2. wyswietlamy fiszki ///////////////////////////////////////////////////
-$added_category = $_SESSION["category_last_id"];
 $sql = "SELECT * FROM flashcards WHERE category_id = ". $added_category;
 $wynik = $conn -> query($sql);
 if($wynik == false){ 
