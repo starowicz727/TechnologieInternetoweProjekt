@@ -1,10 +1,14 @@
 <?php
 session_start();
-$added_category = $_GET["categ_id"];
+
+if(!isset($_SESSION["category_last_id"])){
+    $_SESSION["category_last_id"] = $_POST["categ_id"];
+}
+
 require_once("connect.php"); // łączymy się z bazą danych
 
 /////////////////////////////0.na górze strony wyświetlamy nazwę folderu///////////////////////////////////
-$sql = "SELECT name FROM categories WHERE id = ". $added_category;
+$sql = "SELECT name FROM categories WHERE id = ". $_SESSION["category_last_id"];
 $wynik = $conn -> query($sql);
 if($wynik == false){ 
     echo "bledne polecenie sql".$sql;  
@@ -23,7 +27,7 @@ echo "<input type=submit value=Add>";
 echo "</form>";
 
 /////////////////////////////2. wyswietlamy fiszki ///////////////////////////////////////////////////
-$sql = "SELECT * FROM flashcards WHERE category_id = ". $added_category;
+$sql = "SELECT * FROM flashcards WHERE category_id = ". $_SESSION["category_last_id"];
 $wynik = $conn -> query($sql);
 if($wynik == false){ 
     echo "bledne polecenie sql".$sql;  
@@ -35,7 +39,11 @@ else{
     {
         echo "<tr><td>".$rekord["term"];
         echo "<td>".$rekord["definition"];
-        echo "<td><a href=edytuj_fiszke.php?flashcard_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id fiszki
+        //echo "<td><a href=edytuj_fiszke.php?flashcard_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id fiszki
+        echo "<td><form method=post action=edytuj_fiszke.php>";
+        echo "<input type='hidden' name=flashcard_id value=".$rekord['id'].">";
+        echo "<input type=submit value='Edit'>";
+        echo "</form>";
         echo "<td><a href=usun_fiszke.php?flashcard_id=$rekord[id]>";
         echo"<img alt=\"delete\" src=\"delete-button.png\">";
         echo"</a>";
@@ -48,7 +56,7 @@ if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi do
     {
         $sql = "insert into flashcards (term, definition,category_id) values (?,?,?)";
         $prep = $conn -> prepare($sql);
-        $prep -> bind_param('ssi',$_POST['frm_flash_term'], $_POST['frm_flash_def'], $added_category); 
+        $prep -> bind_param('ssi',$_POST['frm_flash_term'], $_POST['frm_flash_def'], $_SESSION["category_last_id"]); 
         $result = $prep -> execute(); // tu się wykona insert
         if($result){//jeśli się udało
             header("Location: dodaj_fiszki_do_kategorii.php"); //tu załadujemy stronę od nowa, żeby wyświetlić dodaną fiszkę
