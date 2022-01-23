@@ -134,7 +134,8 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
         {
             echo "<tr><td>".$rekord["name"];
             echo "<td><a href=dodaj_fiszki_do_kategorii.php?categ_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id kategorii
-			echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id kategorii
+			echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>ucz się</a>"; //tu przesyłamy id kategorii
+			echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>test</a>"; //tu przesyłamy id kategorii
         }
         echo "</table>";
     }
