@@ -101,7 +101,38 @@
 
 <?php
 session_start();
+require_once("connect.php"); // łączymy się z bazą danych
+$flashcard_id = $_GET["flashcard_id"];
+$flashc_term = "";
+$flashc_def = "";
+$category_id = ""; // potrzebne żeby znowu wrócić do widoku folderu z już wyedytowaną fiszką 
+/////////////////////////////1. szukamy informacji jak póki co wygląda fiszka///////////////////////////////////
+$sql = "SELECT term,definition,category_id FROM flashcards WHERE id = ". $flashcard_id;
+$wynik = $conn -> query($sql);
+if($wynik == false){ 
+    echo "bledne polecenie sql".$sql;  
+    exit;
+}
+else{
+	$wynik = $wynik -> fetch_assoc();
+    $flashc_term = $wynik["term"];
+	$flashc_def = $wynik["definition"];
+	$category_id = $wynik["category_id"];
+}
 
+echo "<form method=post action=edytuj_fiszke.php>";
+echo "<input name=frm_flash_term value=".$flashc_term." required=\"required\">Term</br>"; 
+echo "<input name=frm_flash_def value=".$flashc_def." required=\"required\">Definition</br>"; 
+echo "<input type=submit value=Edit>";
+echo "</form>";
 
+if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])){
+	$sql = "update flashcards set term=?, definition=? where id=?";
+	$prep = $polaczenie -> prepare($sql);
+	$prep -> bind_param('ssi',$_POST['frm_flash_term'],$_POST['frm_flash_def'], $flashcard_id); 
+	$prep -> execute(); // tutaj wykona się insert 
+	$_SESSION["category_last_id"] = $category_id;
+	header("Location: dodaj_fiszki_do_utworzonej_kategorii.php"); //tu wracamy do widoku całego folderu, korzystamy z tego skryptu a nie z dodaj_fiszki_do_kategorii, żeby nie używać get
+}
 
 ?>

@@ -35,7 +35,11 @@ else{
     {
         echo "<tr><td>".$rekord["term"];
         echo "<td>".$rekord["definition"];
-        echo "<td><a href=edytuj_fiszke.php?flashcard_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id fiszki
+        echo "<td>"; //<a href=edytuj_fiszke.php?flashcard_id=$rekord[id]>edytuj</a>"; //tu przesyłamy id fiszki
+        echo "<form method=post action=edytuj_fiszke.php>";
+        echo "<input type=submit value='Usuń ten folder'>";
+        echo "</form>";
+
         echo "<td><a href=usun_fiszke.php?flashcard_id=$rekord[id]>";
         echo"<img alt=\"delete\" src=\"delete-button.png\">";
         echo"</a>";
