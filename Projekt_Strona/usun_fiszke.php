@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pl">
 <head>
 
@@ -15,10 +15,10 @@
 	<link rel="stylesheet" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
-	<!--[if lt IE 9]>
+	[if lt IE 9]>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<![endif]-->
-	
+<!-- 	
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">
 		
 			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
-		
+<!-- 		
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -47,9 +47,8 @@
 
                     <li class="nav-item disable">
 						<a class="nav-link" href="logOut.php"> Log out </a>
-					</li>
-					
-					
+					</li> -->
+				 
 					<!-- <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
 						
@@ -89,19 +88,31 @@
 				
 				</form> -->
 			
-			</div>
+			<!-- </div>
 		
 		</nav>
 	
 	</header>
 
 </body>
-</html>
+</html> -->
 
 
 <?php
 session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
 
+require_once("connect.php"); // łączymy się z bazą danych
+$flashcrd_delete = $_GET["flashcard_delete_id"];
 
+//usuwamy fiszke
+$sql = "delete from flashcards where id=$flashcrd_delete";
+$conn -> query($sql);
+
+//na koniec wracamy na strone folderu, z którego usunęliśmy fiszkę 
+header("Location: dodaj_fiszki_do_kategorii.php");
 
 ?>

@@ -1,5 +1,11 @@
-<?php // aby usunac kategorie => najpierw musimy usunac fiszki z niej 
+<?php //tutaj nie potrzebujemy wyglądu strony
 session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
+
+// aby usunac kategorie => najpierw musimy usunac fiszki z niej 
 require_once("connect.php"); // łączymy się z bazą danych
 $category_delete = $_POST["cat_delete"];
 

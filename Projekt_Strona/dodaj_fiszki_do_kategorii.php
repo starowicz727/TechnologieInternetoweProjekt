@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
 
 if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu logowanie_ok
     $_SESSION["category_last_id"] = $_POST["categ_id"];
@@ -44,7 +48,7 @@ else{
         echo "<input type='hidden' name=flashcard_id value=".$rekord['id'].">";
         echo "<input type=submit value='Edit'>";
         echo "</form>";
-        echo "<td><a href=usun_fiszke.php?flashcard_id=$rekord[id]>";
+        echo "<td><a href=usun_fiszke.php?flashcard_delete_id=$rekord[id]>";
         echo"<img alt=\"delete\" src=\"delete-button.png\">";
         echo"</a>";
     }

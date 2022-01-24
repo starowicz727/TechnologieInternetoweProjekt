@@ -101,6 +101,10 @@
 
 <?php
 session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
 
 if(isset($_POST["frm_name_categ"])) //jelsi dodaj_kategorie.php nie byl uruchomiony po raz pierwszy
 {
