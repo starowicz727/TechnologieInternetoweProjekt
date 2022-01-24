@@ -133,7 +133,7 @@ if($result == false){
 }
 else{
     if(($rekord = $result -> fetch_assoc()) != null){ //jesli mamy chociaz jedna fiszke
-        echo "<form method=post action=sprawdzian_sprawdz.php>";
+        echo "<form autocomplete='off' method=post action=sprawdzian_sprawdz.php>";
         echo "<table border><th>Term<th>Definition";
         echo "<tr><td>".$rekord["term"]."<td>";
         //echo "<td>".$rekord["definition"];

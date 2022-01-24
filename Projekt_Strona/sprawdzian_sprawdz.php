@@ -132,6 +132,7 @@ if($result == false){
     exit;
 }
 else{
+	$questions = 0;
 	$points = 0;
 	$color = 'green';
     echo "<table border><th>Term<th>Definition<th>Your answer";
@@ -144,6 +145,7 @@ else{
 		else{
 			$color = 'red';
 		}
+		$questions += 1;
         echo "<tr><td bgcolor='blue'>".$rekord["term"];
         echo "<td bgcolor='green'>".$rekord["definition"];
         //$answer_set[$rekord["term"]] = $rekord["definition"];
@@ -151,6 +153,12 @@ else{
     }
     echo "</table>";
 	echo"Your points: ".$points;
+	echo "<br>Total percentage of correct answers: ". round($points/$questions, 2). " %";
+
+	echo "<form method=post action=sprawdzian.php>";
+    echo "<input type='hidden' name=categ_id value=".$_SESSION["category_last_id"].">";
+    echo "<input type=submit value='Try again'>";
+    echo "</form>";
     
 }
 
