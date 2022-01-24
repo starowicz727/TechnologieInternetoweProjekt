@@ -129,7 +129,7 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
         exit;
     }
     
-    if(($rekord = $wynik -> fetch_assoc()) != null){ // gdy mamy już dodany jakiś folder
+    //if(($rekord = $wynik -> fetch_assoc()) != null){ // gdy mamy już dodany jakiś folder
         echo"<table>";
         while(($rekord = $wynik -> fetch_assoc()) != null) 
         {
@@ -151,12 +151,10 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
         	echo "</form>";
         }
         echo "</table>";
-    }
-    else{
-        echo "Nie masz jeszcze żadnych folderów. Utwórz pierwszy folder:";
-    }
-    
-
+    //}
+    // else{
+    //     echo "Nie masz jeszcze żadnych folderów. Utwórz pierwszy folder:";
+    // }
 }
 
 ?>
