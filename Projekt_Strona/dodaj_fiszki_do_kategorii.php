@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION["category_last_id"]==""){
+if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu logowanie_ok
     $_SESSION["category_last_id"] = $_POST["categ_id"];
 }
 
@@ -69,6 +69,7 @@ if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi do
     //////////////////////4. mozliwosc usuniecia calego folderu z fiszkami /////////////////
 
     echo "<form method=post action=usun_kategorie.php>";
+    echo "<input type='hidden' name=cat_delete value=".$_SESSION["category_last_id"].">";
     echo "<input type=submit value='Usuń ten folder'>";
     echo "</form>";
 

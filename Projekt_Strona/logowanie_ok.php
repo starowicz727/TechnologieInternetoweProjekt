@@ -101,7 +101,7 @@
 <?php
 
 session_start();
-$_SESSION["category_last_id"]="";
+$_SESSION["category_last_id"]=-1; //na początku nie wybralismy zadnego folderu 
 
 if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
     header("Location: logowanie.php");

@@ -1,6 +1,15 @@
-<?php
+<?php // aby usunac kategorie => najpierw musimy usunac fiszki z niej 
+session_start();
+require_once("connect.php"); // łączymy się z bazą danych
+$category_delete = $_POST["cat_delete"];
 
-// usunac kategorie => najpierw usunac fiszki z niej 
-
+//najpierw usuwamy fiszki
+$sql = "delete from flashcards where category_id=$category_delete";
+$conn -> query($sql);
+//potem usuwamy cały folder 
+$sql = "delete from categories where id=$category_delete";
+$conn -> query($sql);
+//na koniec wracamy na strone glowna logowanie_ok
+header("Location: logowanie_ok.php");
 
 ?>
