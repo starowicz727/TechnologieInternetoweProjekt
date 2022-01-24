@@ -124,7 +124,7 @@ else{
 }
 echo "folder: ".$c_name["name"];
 
-/////////////////////////////2. wyswietlamy fiszki ///////////////////////////////////////////////////
+/////////////////////////////2. wyswietlamy fiszki i odpowiedzi///////////////////////////////////////////////////
 $sql = "SELECT * FROM flashcards WHERE category_id = ". $_SESSION["category_last_id"];
 $result = $conn -> query($sql);
 if($result == false){ 
@@ -132,26 +132,17 @@ if($result == false){
     exit;
 }
 else{
-    if(($rekord = $result -> fetch_assoc()) != null){ //jesli mamy chociaz jedna fiszke
-        echo "<form method=post action=sprawdzian_sprawdz.php>";
-        echo "<table border><th>Term<th>Definition";
-        echo "<tr><td>".$rekord["term"]."<td>";
-        //echo "<td>".$rekord["definition"];
+	$points = 0;
+    echo "<table border><th>Term<th>Definition<th>Your answer";
+    while(($rekord = $result -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
+    {
+        echo "<tr><td>".$rekord["term"];
+        echo "<td>".$rekord["definition"];
         $answer_set[$rekord["term"]] = $rekord["definition"];
-        echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
-        while(($rekord = $result -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
-        {
-            echo "<tr><td>".$rekord["term"]."<td>";
-            //echo "<td>".$rekord["definition"];
-            $answer_set[$rekord["term"]] = $rekord["definition"];
-            echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
-        }
-        echo "</table>";
-        echo "<input type=submit value=Check>";
-        echo"</form>";
-    }else{
-        echo"Aby utworzyć sprawdzian, najpierw musisz dodać fiszki do folderu";
+		echo"<td>".$_POST[$rekord["term"]];
+        //echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
     }
+    echo "</table>";
     
 }
 
