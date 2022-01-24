@@ -133,16 +133,24 @@ if($result == false){
 }
 else{
 	$points = 0;
+	$color = 'green';
     echo "<table border><th>Term<th>Definition<th>Your answer";
     while(($rekord = $result -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
     {
-        echo "<tr><td>".$rekord["term"];
-        echo "<td>".$rekord["definition"];
-        $answer_set[$rekord["term"]] = $rekord["definition"];
-		echo"<td>".$_POST[$rekord["term"]];
-        //echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
+		if($rekord["definition"]==$_POST[$rekord["term"]]){
+			$points+=1;
+			$color = 'green';
+		}
+		else{
+			$color = 'red';
+		}
+        echo "<tr><td bgcolor='blue'>".$rekord["term"];
+        echo "<td bgcolor='green'>".$rekord["definition"];
+        //$answer_set[$rekord["term"]] = $rekord["definition"];
+		echo"<td bgcolor=$color>".$_POST[$rekord["term"]];
     }
     echo "</table>";
+	echo"Your points: ".$points;
     
 }
 

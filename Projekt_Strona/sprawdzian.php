@@ -137,13 +137,13 @@ else{
         echo "<table border><th>Term<th>Definition";
         echo "<tr><td>".$rekord["term"]."<td>";
         //echo "<td>".$rekord["definition"];
-        $answer_set[$rekord["term"]] = $rekord["definition"];
+        //$answer_set[$rekord["term"]] = $rekord["definition"];
         echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
         while(($rekord = $result -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
         {
             echo "<tr><td>".$rekord["term"]."<td>";
             //echo "<td>".$rekord["definition"];
-            $answer_set[$rekord["term"]] = $rekord["definition"];
+            //$answer_set[$rekord["term"]] = $rekord["definition"];
             echo "<input type=text name=".$rekord["term"]." required=\"required\"></br>"; 
         }
         echo "</table>";
