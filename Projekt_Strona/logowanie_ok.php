@@ -139,8 +139,16 @@ function show_folders(){ //wyświetla wszystkie foldery fiszek == wszystkie kate
         	echo "<input type='hidden' name=categ_id value=".$rekord['id'].">";
         	echo "<input type=submit value='Edytuj ten folder'>";
         	echo "</form>";
-			echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>ucz się</a>"; //tu przesyłamy id kategorii
-			echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>test</a>"; //tu przesyłamy id kategorii
+			//echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>ucz się</a>"; //tu przesyłamy id kategorii
+			echo "<td><form method=post action=ucz_sie.php>";
+        	echo "<input type='hidden' name=categ_id value=".$rekord['id'].">";
+        	echo "<input type=submit value='Ucz się'>";
+        	echo "</form>";
+			//echo "<td><a href=losuj_fiszki_do_kategorii.php?categ_id=$rekord[id]>test</a>"; //tu przesyłamy id kategorii
+			echo "<td><form method=post action=sprawdzian.php>";
+        	echo "<input type='hidden' name=categ_id value=".$rekord['id'].">";
+        	echo "<input type=submit value='Test'>";
+        	echo "</form>";
         }
         echo "</table>";
     }
