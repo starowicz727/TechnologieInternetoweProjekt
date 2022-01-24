@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["category_last_id"])){
+if($_SESSION["category_last_id"]==""){
     $_SESSION["category_last_id"] = $_POST["categ_id"];
 }
 
