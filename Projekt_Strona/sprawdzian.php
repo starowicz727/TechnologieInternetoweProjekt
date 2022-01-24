@@ -42,7 +42,7 @@ else{
         }
         echo "</table>";
     }else{
-        echo"najpierw musisz dodać fiszki do folderu";
+        echo"Aby utworzyć sprawdzian, najpierw musisz dodać fiszki do folderu";
     }
     
 }
