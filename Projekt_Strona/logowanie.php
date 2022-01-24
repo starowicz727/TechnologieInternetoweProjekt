@@ -22,84 +22,45 @@
 </head>
 
 <body>
-
-	<header>
-	
-		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">
-		
+	<header>	
+		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">		
 			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
-		
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		
-			<div class="collapse navbar-collapse" id="mainmenu">
-			
-				<ul class="navbar-nav">
-				
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Home </a>
-					</li>
-
-                    <li class="nav-item">
-						<a class="nav-link" href="profile.php"> Profile </a>
-					</li>
-
-                    <li class="nav-item">
-						<a class="nav-link" href="logOut.php"> Log out </a>
-					</li>
-					
-					
-					<!-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
-						
-						<div class="dropdown-menu" aria-labelledby="submenu">
-						
-							<a class="dropdown-item" href="#"> Terminarz zawodów </a>
-							<a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
-							
-							<div class="dropdown-divider"></div>
-							
-							<a class="dropdown-item" href="#"> Sylwetki zawodników </a>
-							<a class="dropdown-item" href="#"> Skocznie narciarskie </a>
-						
-						</div>
-						
-					</li> -->
-					
-
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="#"> Zdjęcia </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#"> Wywiady </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Kontakt </a>
-					</li> -->
-				
-				</ul>
-			
-				<!-- <form class="form-inline">
-				
-					<input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
-					<button class="btn btn-light" type="submit">Znajdź</button>
-				
-				</form> -->
-			
-			</div>
-		
-		</nav>
-	
+		</nav>	
 	</header>
+    <!-- <fieldset> -->
+        <div id="login">
+            <h3 class="text-center text-white pt-5"></h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="logowanie.php" method="post">
+                                <h3 class="text-center text-info">Login</h3>
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Username:</label><br>
+                                    <input type="text" name="frm_login" id="username" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Password:</label><br>
+                                    <input type="password" name="frm_pass" id="password" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                                </div>
+                                <div id="register-link" class="text-right">
+                                    <a href="rejestracja.php" class="text-info">Don't have an account? <b>Register here</b></a>
+                                </div>
+                            </form>
 
-</body>
-</html>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </fieldset> -->
 
 <?php
-
 if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
 {
     require_once("connect.php"); // łączymy się z bazą danych
@@ -117,16 +78,18 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
         header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
     }
     else{
-        echo"Błąd logowania"; //tu wracamy do ponownego logowania, bo nie udało się zalogować
+        echo "<h1 class=\"text-center text-danger\">Invalid username or password</h1>";
+        //$_POST["frm_login"];
+        ?><body style="background:#632525;"><?php
+        //.bg-danger 
+
+        //echo"<center color='blue'>Try again</center>"; //tu wracamy do ponownego logowania, bo nie udało się zalogować
+        // echo "bgcolor='blue'>".$rekord["term"];
     }
 }
-echo"Logowanie";
-echo "<form method=post action=logowanie.php>";
-echo "<input name=frm_login required=\"required\">Login</br>"; 
-echo "<input type=password name=frm_pass required=\"required\">Haslo</br>";
-echo "<input type=submit value=Zaloguj>";
-echo "</form>";
-
-echo "<a href=\"rejestracja.php\">Nie masz konta? Zarejestruj się</a>";
 
 ?>
+
+</body>
+</html>
+
