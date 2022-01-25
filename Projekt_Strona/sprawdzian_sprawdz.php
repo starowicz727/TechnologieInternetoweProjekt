@@ -160,6 +160,10 @@ else{
     echo "<input type=submit value='Try again'>";
     echo "</form>";
     
+	echo "<form method=post action=ucz_sie.php>";
+    echo "<input type='hidden' name=categ_id value=".$_SESSION["category_last_id"].">";
+    echo "<input type=submit value='Learn again'>";
+    echo "</form>";
 }
 
 ?>
