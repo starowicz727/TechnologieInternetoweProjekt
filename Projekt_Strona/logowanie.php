@@ -12,18 +12,60 @@
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="login.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 	
 </head>
 
 <body>
+<div class="wrapper">
+	<div class="container">
+		<h1>Welcome</h1>
+		
+		<form id="login-form" class="form" action="logowanie.php" method="post">        
+			<input type="text" name="frm_login" id="username" required="required" placeholder="Username">
+			<input type="password" name="frm_pass" id="password" required="required" placeholder="Password">
+			<button type="submit" name="submit" id="login-button">Login</button>
+            <br>
+            <br>
+            <div id="register-link" >
+            <a href="rejestracja.php" class="text-info">Don't have an account? <b>Register here</b></a>
+            </div>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+<!-- <script src='//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js'></script><script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+<!-- <script> $("#login-button").click(function(event){
+		 event.preventDefault();
+	 
+	 $('form').fadeOut(500);
+	 $('.wrapper').addClass('form-success');
+});
+//# sourceURL=pen.js
+</script> -->
+<!-- </body> -->
+
+
+<!-- <body>
 	<header>	
 		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">		
-			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
+			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a>
 		</nav>	
 	</header>
-    <!-- <fieldset> -->
+    
         <div id="login">
             <h3 class="text-center text-white pt-5"></h3>
             <div class="container">
@@ -41,7 +83,8 @@
                                     <input type="password" name="frm_pass" id="password" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
+                                    to zakomentowac
+                                     <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
                                     <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
                                 </div>
                                 <div id="register-link" class="text-right">
@@ -54,7 +97,7 @@
                 </div>
             </div>
         </div>
-    <!-- </fieldset> -->
+    </fieldset> -->
 
 <?php
 if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
@@ -74,16 +117,10 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
         header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
     }
     else{
-        echo "<h1 class=\"text-center text-danger\">Invalid username or password</h1>";
-        //$_POST["frm_login"];
-        ?><body style="background:#632525;"><?php
-        //.bg-danger 
-
-        //echo"<center color='blue'>Try again</center>"; //tu wracamy do ponownego logowania, bo nie udało się zalogować
-        // echo "bgcolor='blue'>".$rekord["term"];
+        echo "<br><br><br><br>";
+        echo "<h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
     }
 }
-
 ?>
 	<!-- Option 1: Bootstrap Bundle with Popper-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -10,6 +10,13 @@
 
 /* <style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * { */
+
+
+
+
+
+
+    
 style {
   box-sizing: border-box;
   margin: 0;
@@ -20,6 +27,10 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+  background-color: black;
+  /* background-color: -webkit-linear-gradient(top left, #810fa3 0%, #5e4df5 100%); */
+  /* background-color: linear-gradient(to bottom right, #810fa3 0%, #5e4df5 100%); */
+ 
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -46,17 +57,22 @@ body :-ms-input-placeholder {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+  /* align-items: center; */
 }
 .wrapper {
-  background: #50a3a2;
-  background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
-  background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+  background: white;
+  /* background: -webkit-linear-gradient(top left, #810fa3 0%, #5e4df5 100%); */
+  background: linear-gradient(to bottom right, #810fa3 0%, #5e4df5 100%);
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 100%;
+  left: 20%;
+  width: 60%;
   height: 400px;
   margin-top: -200px;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-left: 100px; */
+  /* justify-content: center; */
   overflow: hidden;
 }
 .wrapper.form-success .container h1 {
@@ -69,6 +85,7 @@ body :-ms-input-placeholder {
   padding: 80px 0;
   height: 400px;
   text-align: center;
+  /*background: #7e53e3; kolor ramki logowania */
 }
 .container h1 {
   font-size: 40px;
@@ -108,7 +125,7 @@ form input:hover {
 form input:focus {
   background-color: white;
   width: 300px;
-  color: #53e3a6;
+  color: #5e4df5;
 }
 form button {
   -webkit-appearance: none;
@@ -118,7 +135,7 @@ form button {
   background-color: white;
   border: 0;
   padding: 10px 15px;
-  color: #53e3a6;
+  color: #5e4df5;
   border-radius: 3px;
   width: 250px;
   cursor: pointer;
