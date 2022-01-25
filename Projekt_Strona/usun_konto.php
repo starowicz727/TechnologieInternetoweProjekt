@@ -112,7 +112,7 @@ echo "<form method=post action=profile.php>";
 echo "<input type=submit value='Cancel'>";
 echo "</form>";
 
-echo "<form method=post action=usun_konto.php>";
+echo "<form method=post action=usuwanie_konta_z_bazy.php>";
 echo "<input type=submit value='Delete'>";
 echo "</form>";
 

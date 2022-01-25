@@ -22,81 +22,39 @@
 </head>
 
 <body>
-
-	<header>
-	
-		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">
-		
+	<header>	
+		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">		
 			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
-		
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-		
-			<div class="collapse navbar-collapse" id="mainmenu">
-			
-				<ul class="navbar-nav mr-auto">
-				
-					<li class="nav-item disable">
-						<a class="nav-link" href="logowanie_ok.php"> Home </a>
-					</li>
-
-                    <li class="nav-item active">
-						<a class="nav-link" href="#"> Profile </a>
-					</li>
-
-                    <li class="nav-item disable">
-						<a class="nav-link" href="logOut.php"> Log out </a>
-					</li>
-					
-					
-					<!-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
-						
-						<div class="dropdown-menu" aria-labelledby="submenu">
-						
-							<a class="dropdown-item" href="#"> Terminarz zawodów </a>
-							<a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
-							
-							<div class="dropdown-divider"></div>
-							
-							<a class="dropdown-item" href="#"> Sylwetki zawodników </a>
-							<a class="dropdown-item" href="#"> Skocznie narciarskie </a>
-						
-						</div>
-						
-					</li> -->
-					
-
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="#"> Zdjęcia </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#"> Wywiady </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Kontakt </a>
-					</li> -->
-				
-				</ul>
-			
-				<!-- <form class="form-inline">
-				
-					<input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
-					<button class="btn btn-light" type="submit">Znajdź</button>
-				
-				</form> -->
-			
-			</div>
-		
-		</nav>
-	
+		</nav>	
 	</header>
+    <!-- <fieldset> -->
+        <div id="login">
+            <h3 class="text-center text-white pt-5"></h3>
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="zmien_haslo.php" method="post">
+                                <h3 class="text-center text-info">Reset your password</h3>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">New password:</label><br>
+                                    <input type="password" name="frm_pass1" id="username" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Repeat new password:</label><br>
+                                    <input type="password" name="frm_pass2" id="password" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Reset">
+                                </div>
+                            </form>
 
-</body>
-</html>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <?php
 
@@ -107,16 +65,18 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
     exit;
 }
 
-echo "Your account :)";
-echo "Login: ". $_SESSION["login"];
-
-
-echo "<form method=post action=zmien_haslo.php>";
-echo "<input type=submit value='Change your password'>";
-echo "</form>";
-
-echo "<form method=post action=usun_konto.php>";
-echo "<input type=submit value='Delete this account'>";
-echo "</form>";
+if(isset($_POST["frm_pass1"]) && isset($_POST["frm_pass2"])) //jeślii zmien_haslo.php nie byl uruchomiony po raz pierwszy
+{
+	if($_POST["frm_pass1"] == $_POST["frm_pass2"]){
+		require_once("connect.php"); // łączymy się z bazą danych
+	}
+	else{
+		echo "<h1 class=\"text-center text-danger\">Both passwords must be the same</h1>";
+		?><body style="background:#632525;"><?php
+	}
+}
 
 ?>
+
+</body>
+</html>
