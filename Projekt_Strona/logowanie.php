@@ -72,7 +72,7 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
             <br>
             <br>
             <div id="register-link" >
-            <a href="rejestracja.php" class="text-info">Don't have an account? <b>Register here</b></a>
+            <a href="rejestracja.php">Don't have an account? <b>Register here</b></a>
             </div>
 		</form>
 	</div>
