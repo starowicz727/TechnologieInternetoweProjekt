@@ -69,6 +69,12 @@ if(isset($_POST["frm_pass1"]) && isset($_POST["frm_pass2"])) //jeślii zmien_has
 {
 	if($_POST["frm_pass1"] == $_POST["frm_pass2"]){
 		require_once("connect.php"); // łączymy się z bazą danych
+		$sql = "update users set password=? where login=?";
+		$prep = $conn -> prepare($sql);
+		$new_passw = sha1($_POST['frm_pass1']);
+		$prep -> bind_param('ss',$new_passw, $_SESSION["login"]); 
+		$prep -> execute(); // tutaj wykona się update 
+		header("Location: profile.php"); //tu wracamy do przeglądania profilu
 	}
 	else{
 		echo "<h1 class=\"text-center text-danger\">Both passwords must be the same</h1>";

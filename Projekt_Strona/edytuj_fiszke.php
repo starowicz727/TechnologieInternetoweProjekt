@@ -131,7 +131,7 @@ if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])){
 	$sql = "update flashcards set term=?, definition=? where id=?";
 	$prep = $conn -> prepare($sql);
 	$prep -> bind_param('ssi',$_POST['frm_flash_term'],$_POST['frm_flash_def'], $flashcard_id); 
-	$prep -> execute(); // tutaj wykona się insert 
+	$prep -> execute(); // tutaj wykona się update 
 	//$_SESSION["category_last_id"] = $category_id;
 	header("Location: dodaj_fiszki_do_kategorii.php"); //tu wracamy do widoku całego folderu, korzystamy z tego skryptu a nie z dodaj_fiszki_do_kategorii, żeby nie używać get
 }
