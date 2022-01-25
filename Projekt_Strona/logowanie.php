@@ -45,6 +45,25 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
 <div class="wrapper">
 	<div class="container">
 		<h1>Welcome</h1>
+        <!-- <form id="login-form" class="form" action="logowanie.php" method="post">
+                                <h3 class="text-center text-info">Login</h3>
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Username:</label><br>
+                                    <input type="text" name="frm_login" id="username" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Password:</label><br>
+                                    <input type="password" name="frm_pass" id="password" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    to zakomentowac
+                                     <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="Login">
+                                </div>
+                                <div id="register-link" class="text-right">
+                                    <a href="rejestracja.php" class="text-info">Don't have an account? <b>Register here</b></a>
+                                </div>
+                            </form> -->
 		
 		<form id="login-form" class="form" action="logowanie.php" method="post">        
 			<input type="text" name="frm_login" id="username" required="required" placeholder="Username">
