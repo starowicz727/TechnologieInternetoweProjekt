@@ -153,7 +153,7 @@ else{
     }
     echo "</table>";
 	echo"Your points: ".$points;
-	echo "<br>Total percentage of correct answers: ". round($points/$questions, 2). " %";
+	echo "<br>Total percentage of correct answers: ". round($points/$questions * 100, 2). " %";
 
 	echo "<form method=post action=sprawdzian.php>";
     echo "<input type='hidden' name=categ_id value=".$_SESSION["category_last_id"].">";
