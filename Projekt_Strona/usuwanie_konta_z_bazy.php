@@ -106,17 +106,14 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
     header("Location: logowanie.php");
     exit;
 }
+echo "Are you sure you want to delete your account?";
 
-echo "Your account :)";
-echo "Login: ". $_SESSION["login"];
-
-
-echo "<form method=post action=zmien_haslo.php>";
-echo "<input type=submit value='Change your password'>";
+echo "<form method=post action=profile.php>";
+echo "<input type=submit value='Cancel'>";
 echo "</form>";
 
 echo "<form method=post action=usun_konto.php>";
-echo "<input type=submit value='Delete this account'>";
+echo "<input type=submit value='Delete'>";
 echo "</form>";
 
 ?>
