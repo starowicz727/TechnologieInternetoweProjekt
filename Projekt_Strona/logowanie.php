@@ -1,4 +1,3 @@
-
 <?php
 if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
 {
