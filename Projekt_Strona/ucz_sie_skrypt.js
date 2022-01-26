@@ -1,22 +1,15 @@
-var contentArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+var contentArray = [];
 
-document.getElementById("save_card").addEventListener("click", () => {
-  addFlashcard();
-});
-
-document.getElementById("delete_cards").addEventListener("click", () => {
-  localStorage.clear();
-  flashcards.innerHTML = '';
-  contentArray = [];
-});
-
-document.getElementById("show_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "block";
-});
-
-document.getElementById("close_card_box").addEventListener("click", () => {
-  document.getElementById("create_card").style.display = "none";
-});
+var req = new XMLHttpRequest(); 
+	req.onload = function() {
+	contentArray = this.responseText; 
+	console.log(contentArray);
+	
+	console.log(contentArray[0]);
+	
+ };
+req.open("get", "get_flashcards.php", true); 
+req.send();
 
 flashcardMaker = (text) => {
   const flashcard = document.createElement("div");
