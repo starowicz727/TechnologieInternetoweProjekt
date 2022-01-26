@@ -19,7 +19,6 @@
 <body>
 
 <header>
-
     <nav class="navbar navbar-custom navbar-expand-md">
         <a style="color: #ffffff" class="navbar-brand" href="logowanie_ok.php">
             <img src="img/logo.png" width="30" height="30"
@@ -59,14 +58,39 @@ if (!isset($_SESSION["login"])) { //jesli użytkownik sie nie zalogował
     header("Location: logowanie.php");
     exit;
 }
-echo "Are you sure you want to delete your account?";
-
-echo "<form method=post action=profile.php>";
-echo "<input type=submit value='Cancel'>";
-echo "</form>";
-
-echo "<form method=post action=usuwanie_konta_z_bazy.php>";
-echo "<input type=submit value='Delete'>";
-echo "</form>";
-
 ?>
+
+<div class="account">
+    <div class="container">
+        <div class="account__wrapper">
+            <div class="account__heading">
+                <h2>Are you sure you want to delete your account?</h2>
+            </div>
+            <div class="account__username">
+                <h3>Login: <?= $_SESSION["login"] ?></h3>
+            </div>
+            <div class="account__change-password">
+                <form action="profile.php" method="post">
+                    <input type=submit value='Cancel'>
+                </form>
+            </div>
+            <div class="account__delete-account">
+                <form action="usuwanie_konta_z_bazy.php" method="post">
+                    <input type=submit value='Delete'>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 
+// echo "Are you sure you want to delete your account?";
+
+// echo "<form method=post action=profile.php>";
+// echo "<input type=submit value='Cancel'>";
+// echo "</form>";
+
+// echo "<form method=post action=usuwanie_konta_z_bazy.php>";
+// echo "<input type=submit value='Delete'>";
+// echo "</form>"; -->
+
