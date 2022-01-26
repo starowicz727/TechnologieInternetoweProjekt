@@ -113,9 +113,33 @@ if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował
 }
 else{
 	require_once("connect.php"); // łączymy się z bazą danych
+	$users_login = $_SESSION["login"];
+	
+	$query = "DELETE FROM flashcards WHERE flashcards.category_id IN (SELECT id FROM categories where user_login like ?)";
+	$prep = $conn -> prepare($query);
+    $prep -> bind_param('s',$users_login); 
+    $prep -> execute(); //	usuwamy fiszki
+	
+	
+	$query = "DELETE FROM categories WHERE categories.user_login = ?"; 
+	$prep = $conn -> prepare($query);
+    $prep -> bind_param('s',$users_login); 
+    $prep -> execute(); //  usuwamy kategorie
+	
+	$query = "DELETE FROM users WHERE login = ?";
+	$prep = $conn -> prepare($query);
+    $prep -> bind_param('s',$users_login); 
+    $result = $prep -> execute(); //  usuwamy użytkownika
 
+	
+	
+	if ($result){//jeśli się udało
+		session_destroy();
+        header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
+    }else{
+        echo "something went wrong";
+    }
 
-
-}
+   }
 
 ?>
