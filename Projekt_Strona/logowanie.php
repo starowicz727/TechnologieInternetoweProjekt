@@ -1,4 +1,10 @@
 <?php
+session_start();
+if(isset($_SESSION["login"])){ //jesli użytkownik sie już wcześniej zalogował 
+    header("Location: logowanie_ok.php");
+    exit;
+}
+
 if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
 {
     require_once("connect.php"); // łączymy się z bazą danych
@@ -11,7 +17,7 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
     $result = $prep -> get_result();
 
     if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> logowanie powinno się udać
-        session_start();
+        //session_start();
         $_SESSION["login"]= $_POST["frm_login"];
         header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
     }
