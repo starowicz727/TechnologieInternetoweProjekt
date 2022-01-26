@@ -112,9 +112,14 @@ if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu 
 
 	<script src="js/bootstrap.min.js"></script>
 
+	<section>
+		<div class='container'>
+			<div id='flashcards'>
 	
 
-
+			</div>
+		</div>
+	</section>
 
 <?php
 
@@ -136,84 +141,36 @@ else{
 echo "folder: ".$c_name["name"];
 
 /////////////////////////////1. wyswietlamy fiszki ///////////////////////////////////////////////////
-$sql = "SELECT * FROM flashcards WHERE category_id = ". $_SESSION["category_last_id"];
-$wynik = $conn -> query($sql);
-if($wynik == false){ 
-    echo "bledne polecenie sql".$sql;  
-    exit;
-}
-else{
-	// $dom->Load("ucz_sie.php");
-	// $div = $dom->getElementById('flashcards')->textContent;	  
-	// echo $div;
+// $sql = "SELECT * FROM flashcards WHERE category_id = ". $_SESSION["category_last_id"];
+// $wynik = $conn -> query($sql);
+// if($wynik == false){ 
+    // echo "bledne polecenie sql".$sql;  
+    // exit;
+// }
+// else{
+
 	
 	
-	?>
+?>
 	
 	<script type="text/javascript" src="ucz_sie_skrypt.js"></script>
 		
+<?php
 
-	<?php
-	echo 	"<section>;
-				<div class='container'>;
-					<div id='flashcards'>";
 	
-    while(($rekord = $wynik -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
-    {
-/* 		$html = "<div class='flashcard'> 
-				 <h2>".$rekord["term"]."</h2>
-				 <h2>".$rekord["definition"]."</h2>
-				 </div>";
-		$dom->loadHTML($html);
-		#$div->appendChild($html);
-
-		echo $dom->saveHTML(); */
-	/* echo "		<script type='text/javascript'>
-		
-		  const flashcard = document.createElement('div');
-		  const question = document.createElement('h2');
-		  const answer = document.createElement('h2');
-
-		  flashcard.className = 'flashcard';
-
-		  question.setAttribute('style', 'border-top:1px solid red; padding: 15px; margin-top:30px');
-		  question.textContent = ".$rekord["term"].";
-
-		  answer.setAttribute('style', 'text-align:center; display:none; color:red');
-		  answer.textContent = ".$rekord["definition"].";
-
-		  flashcard.appendChild(question);
-		  flashcard.appendChild(answer);
-
-		  flashcard.addEventListener('click', () => {
-			if(answer.style.display == 'none')
-			  answer.style.display = 'block';
-			else
-			  answer.style.display = 'none';
-		  })
-
-		  document.querySelector('#flashcards').appendChild(flashcard);
-		
-		</script>"; */
-		
-		echo "<div class='flashcard'> 
-				 <h2>".$rekord["term"]."</h2>
-				 <h2>".$rekord["definition"]."</h2>
-				 </div>";
-			
+    // while(($rekord = $wynik -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
+    // {
 		
 		
-    }
-		echo "	</div>
-				</div>
-				</section>";
-}
+    // }
+
+//}
 
     
 
 
 
-?>
+?> 
 
 </body>
 </html>
