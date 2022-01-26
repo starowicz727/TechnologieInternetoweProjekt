@@ -10,7 +10,6 @@
 
 /* <style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * { */
-
 h1
 {
   font-size: 36px;
@@ -118,6 +117,7 @@ body :-ms-input-placeholder {
   font-weight: 300;
   /* align-items: center; */
 }
+
 .wrapper {
   background: transparent;
   /* background: #4f3cfa; */
