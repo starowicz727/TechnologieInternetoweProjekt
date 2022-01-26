@@ -14,20 +14,44 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-	
+
+	<style>
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color: #4f3cfa; /* zmienia kolor navbara */
+        }
+        /* Modify brand and text color */
+         
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {navbar navbar-custom navbar-expand-md"
+            color: #ffffff;
+        }
+
+        /* Set the border color */
+        /* .custom-toggler.navbar-toggler {
+            border-color: color: #ffffff;
+        } */
+        /* Setting the stroke to green using rgb values (0, 128, 0) */
+/*           
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url(
+                "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        } */
+    </style>
 </head>
 
 <body>
 
 	<header>
 	
-		<nav class="navbar navbar-dark bg-secondary navbar-expand-md">
-		
-			<a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a> <!--obrazek sie zawsze wyswietla-->
-		
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-				<span class="navbar-toggler-icon"></span>
-			</button>
+		<nav class="navbar navbar-custom navbar-expand-md">
+    
+        	<a style="color: #ffffff" class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">Flashcards.com</a> <!--obrazek sie zawsze wyswietla-->
+        
+			<button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+            	<span class="navbar-toggler-icon"></span>
+        	</button>
 		
 			<div class="collapse navbar-collapse" id="mainmenu">
 			

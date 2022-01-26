@@ -41,6 +41,7 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
     <style>
         /* Modify the background color */
+        /* prosze dzialaj */
          
         .navbar-custom {
             background-color: #4f3cfa; /* zmienia kolor navbara */
