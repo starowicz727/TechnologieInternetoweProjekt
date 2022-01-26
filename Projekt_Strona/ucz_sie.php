@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
+if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu logowanie_ok
+    $_SESSION["category_last_id"] = $_POST["categ_id"];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,8 +25,8 @@
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="main.css">
+	<link rel ="stylesheet" href="ucz_sie_style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-	
 </head>
 
 <body>
@@ -104,15 +116,9 @@
 </html>
 
 <?php
-session_start();
-if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
-    header("Location: logowanie.php");
-    exit;
-}
 
-if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu logowanie_ok
-    $_SESSION["category_last_id"] = $_POST["categ_id"];
-}
+
+
 
 require_once("connect.php"); // łączymy się z bazą danych
 
@@ -136,13 +142,21 @@ if($wynik == false){
     exit;
 }
 else{
-    echo "<table border><th>Term<th>Definition";
+   	echo "<section>";
+	echo "<div class='container'>";
+	echo "<div id='flashcards'>";
+		  
+	
     while(($rekord = $wynik -> fetch_assoc()) != null) // wyświetlamy istniejące fiszki 
     {
-        echo "<tr><td>".$rekord["term"];
-        echo "<td>".$rekord["definition"];
+		echo "<div class='flashcard'> ";
+        echo "<h2>".$rekord["term"]."</h2>";
+        echo "<h2>".$rekord["definition"]."</h2>";
+		echo "</div>";
     }
-    echo "</table>";
+    echo "</div>";
+    echo "</div>";
+    echo "</section>";
 }
 
     

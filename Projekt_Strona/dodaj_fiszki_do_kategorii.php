@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
+    header("Location: logowanie.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -104,11 +113,7 @@
 </html>
 
 <?php
-session_start();
-if(!isset($_SESSION["login"])){ //jesli użytkownik sie nie zalogował 
-    header("Location: logowanie.php");
-    exit;
-}
+
 
 if($_SESSION["category_last_id"]==-1){ //gdy weszliśmy na te stronę z poziomu logowanie_ok
     $_SESSION["category_last_id"] = $_POST["categ_id"];
@@ -168,8 +173,11 @@ if(isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi do
         $prep -> bind_param('ssi',$_POST['frm_flash_term'], $_POST['frm_flash_def'], $_SESSION["category_last_id"]); 
         $result = $prep -> execute(); // tu się wykona insert
         if($result){//jeśli się udało
-            header("Location: dodaj_fiszki_do_kategorii.php"); //tu załadujemy stronę od nowa, żeby wyświetlić dodaną fiszkę
-        }
+           # header("Location: dodaj_fiszki_do_kategorii.php"); //tu załadujemy stronę od nowa, żeby wyświetlić dodaną fiszkę
+			echo "	<script type='text/javascript'>
+					window.location.href = 'dodaj_fiszki_do_kategorii.php';
+					</script>";
+		}
         else{
             echo "błąd dodania fiszki";
         }
