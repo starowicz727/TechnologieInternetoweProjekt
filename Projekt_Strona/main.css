@@ -1,29 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+}
+
+h2 {
+    color: white !important;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+nav {
+    padding: 0 20px !important;
+}
+
+.flashcards-general__your-flashcards {
+    margin-bottom: 10px;
+}
+
 .navbar-custom {
-  background-color: #4f3cfa;
+    background-color: #4f3cfa !important;
 }
 
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text,
 .navbar .navbar-custom .navbar-expand-md {
-  color: #ffffff;
+    color: #ffffff !important;
 }
 
 .navbar-custom .navbar-nav > .active > a,
 .navbar-custom .navbar-nav > .active > a:hover,
 .navbar-custom .navbar-nav > .active > a:focus {
-  color: #f04c8c;
-
-  background-color: #5d4cfc;
+    background-color: #5d4cfc !important;
 }
 
 .custom-toggler.navbar-toggler {
-  border-color: #ffffff;
+    border-color: #ffffff !important;
 }
 
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+    box-shadow: none !important;
+}
+
+.navbar-nav {
+    padding: 20px !important;
+    gap: 15px !important;
+}
+
+.navbar-nav li a {
+    padding: 10px !important;
+}
+
+.nav-link:hover {
+    background-color: #5d4cfc !important;
+}
+
+.utility-form .container,
+.terms .container,
+.delete-flashcard .container,
+.touchstone .container,
+.answer .container,
+.account .container,
+.new-folder .container {
+    width: 90%;
+    max-width: 450px;
+    padding: 20px;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+}
+
+.answer .container {
+    padding: 5px;
+}
+
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+.terms__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.terms__single {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background-color: #4F3CFA;
+    border-radius: 16px;
+}
+
+.utility-form__folder-name,
+.account__heading {
+    padding: 15px;
+    background-color: #4F3CFA;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.utility-form__form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+}
+
+.touchstone__form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.utility-form__form__single__label label {
+    margin-bottom: 5px;
+}
+
+.utility-form__form__single__input input,
+.touchstone__quiz input,
+.new-folder-input {
+    border: none;
+    background-color: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 16px;
+    width: 100%;
+    box-shadow: 0px 0px 21px -10px rgb(66 68 90);
+}
+
+.touchstone__quiz input {
+    width: auto;
+}
+
+.utility-form__form__single__input input:focus {
+    outline: none;
+}
+
+.utility-form__form__single__submit input,
+.delete-flashcrad__wrapper input,
+.touchstone__quiz__submit input,
+.user-results__try-again form input,
+.learn-again form input,
+.account__change-password form input,
+.account__delete-account form input,
+.new-folder-submit {
+    border: none;
+    background: #f1f1f1;
+    padding: 20px;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.terms__single__edit input {
+    border: none;
+    border-radius: 16px;
+    padding: 5px 20px;
+}
+
+.terms__single__delete img {
+    width: 30px;
+    height: 30px;
+}
+
+.learn__wrapper {
+    text-align: center;
+}
+
+.touchstone__quiz {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.answer__heading,
+.answer__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.user-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.answer__first,
+.answer__second,
+.answer__third {
+    word-break: break-word;
+}
+
+.account__heading h2 {
+    color: black !important;
+    margin-bottom: 0;
+}
+
+.account__heading,
+.account__username,
+.account__change-password {
+    margin-bottom: 20px;
+}
+
+.new-folder form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

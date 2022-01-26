@@ -13,120 +13,36 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-
-    <style>
-        /* Modify the background color */
-
-        .navbar-custom {
-            background-color: #4f3cfa; /* zmienia kolor navbara */
-        }
-
-        /* Modify brand and text color */
-
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-text {
-            navbar navbar-custom navbar-expand-md "
-            color: #ffffff;
-        }
-
-        /* Set the border color */
-        /* .custom-toggler.navbar-toggler {
-            border-color: color: #ffffff;
-        } */
-        /* Setting the stroke to green using rgb values (0, 128, 0) */
-        /*
-                .custom-toggler .navbar-toggler-icon {
-                    background-image: url(
-                        "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-                } */
-    </style>
 </head>
 
 <body>
 <header>
 
     <nav class="navbar navbar-custom navbar-expand-md">
-
-        <a style="color: #ffffff" class="navbar-brand" href="logowanie.php"><img src="img/logo.png" width="30"
-                                                                                 height="30"
-                                                                                 class="d-inline-block mr-1 align-bottom"
-                                                                                 alt="">Flashcards.com</a>
-        <!--obrazek sie zawsze wyswietla-->
-
-        <!-- <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+        <a style="color: #ffffff" class="navbar-brand" href="logowanie_ok.php">
+            <img src="img/logo.png" width="30" height="30"
+                 class="d-inline-block mr-1 align-bottom"
+                 alt="">Flashcards.com</a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false"
+                aria-label="Przełącznik nawigacji">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="mainmenu">
-
-            <ul class="navbar-nav"> -->
-
-        <!-- <li class="nav-item">
-            <a style="color: #ffffff" class="nav-link" href="logowanie_ok.php"> Home </a>
-        </li> -->
-
-        <!-- <li class="nav-item">
-            <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
-        </li> -->
-        <!--
-                        <li class="nav-item">
-                            <a style="color: #ffffff" class="nav-link" href="LogOut.php"> Log out </a>
-                        </li> -->
-
-
-        <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
-
-            <div class="dropdown-menu" aria-labelledby="submenu">
-
-                <a class="dropdown-item" href="#"> Terminarz zawodów </a>
-                <a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
-
-                <div class="dropdown-divider"></div>
-
-                <a class="dropdown-item" href="#"> Sylwetki zawodników </a>
-                <a class="dropdown-item" href="#"> Skocznie narciarskie </a>
-
-            </div>
-
-        </li> -->
-
-
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="#"> Zdjęcia </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#"> Wywiady </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="#"> Kontakt </a>
-        </li> -->
-
-        <!-- </ul> -->
-
-        <!-- <form class="form-inline">
-
-            <input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
-            <button class="btn btn-light" type="submit">Znajdź</button>
-
-        </form> -->
-
-        <!-- </div> -->
-
+            <ul class="navbar-nav">
+                <li class="nav-item disabled">
+                    <a style="color: #ffffff" class="nav-link" href="logowanie_ok.php"> Home </a>
+                </li>
+                <li class="nav-item disable">
+                    <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
+                </li>
+                <li class="nav-item disable">
+                    <a style="color: #ffffff" class="nav-link" href="LogOut.php"> Log out </a>
+                </li>
+            </ul>
     </nav>
+
 </header>
-
-<!-- Option 1: Bootstrap Bundle with Popper-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-<!-- gdyby to powyzej nie dzialalo -->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
 
 <script src="js/bootstrap.min.js"></script>
 

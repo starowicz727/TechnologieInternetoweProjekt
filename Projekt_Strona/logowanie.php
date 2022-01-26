@@ -45,7 +45,6 @@ if (isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -55,7 +54,7 @@ if (isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie
     </nav>
 
 </header>
-<div class="wrapper">
+<div class="login-wrapper">
     <div class="container">
         <h1>Welcome</h1>
         <form id="login-form" class="form" action="logowanie.php" method="post">

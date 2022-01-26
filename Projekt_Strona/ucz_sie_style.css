@@ -95,7 +95,8 @@ header {
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
 }
 
-.flashcard h2 {
+#flashcards .flashcard h2 {
+    color: black !important;
     font-size: 1rem;
 }
 

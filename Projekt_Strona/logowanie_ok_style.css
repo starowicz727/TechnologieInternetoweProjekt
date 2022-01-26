@@ -24,14 +24,6 @@ style {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-weight: 300;
-}
-
-body {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: white;
-    font-weight: 300;
-    background-color: #5e4df5;
 }
 
 body ::-webkit-input-placeholder {
@@ -59,6 +51,10 @@ body :-ms-input-placeholder {
     color: white;
     font-weight: 300;
     /* align-items: center; */
+}
+
+.home-container {
+    border-radius: 16px;
 }
 
 .wrapper {
@@ -135,12 +131,6 @@ form a {
     color: rgba(255, 255, 255, 0.4);
 }
 
-form input:focus {
-    background-color: white;
-    width: 300px;
-    color: #f04c8c;
-}
-
 form button {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -174,8 +164,9 @@ form button:hover {
 .flashcards__row__folder {
     font-size: 18px;
     padding: 10px 15px;
-    background-color: red;
     border: 1px solid white;
+    background-color: #4F3CFA;
+    color: white;
 }
 
 .flashcards__row__actions {
