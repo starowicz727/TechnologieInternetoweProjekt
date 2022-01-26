@@ -16,8 +16,9 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
         header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
     }
     else{
-        echo "<br><br><br><br>";
-        echo "<h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
+        //echo "";
+        //$_POST["frm_login"] = "hfbsbf";
+        echo "<br><h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
     }
 }
 ?>
@@ -38,10 +39,104 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="login.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
-	
+    <style>
+        /* Modify the background color */
+         
+        .navbar-custom {
+            background-color: #4f3cfa; /* zmienia kolor navbara */
+        }
+        /* Modify brand and text color */
+         
+        .navbar-custom .navbar-brand,
+        .navbar-custom .navbar-text {navbar navbar-custom navbar-expand-md"
+            color: #ffffff;
+        }
+
+        /* Set the border color */
+        /* .custom-toggler.navbar-toggler {
+            border-color: color: #ffffff;
+        } */
+        /* Setting the stroke to green using rgb values (0, 128, 0) */
+/*           
+        .custom-toggler .navbar-toggler-icon {
+            background-image: url(
+                "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        } */
+    </style>
 </head>
 
 <body>
+<header>
+	
+    <nav class="navbar navbar-custom navbar-expand-md">
+    
+        <a style="color: #ffffff" class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">Flashcards.com</a> <!--obrazek sie zawsze wyswietla-->
+        
+        <!-- <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="mainmenu">
+        
+            <ul class="navbar-nav"> -->
+            
+                <!-- <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="#"> Home </a>
+                </li> -->
+
+                <!-- <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
+                </li> -->
+<!-- 
+                <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="logOut.php"> Log out </a>
+                </li> -->
+                
+                
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="submenu">
+                    
+                        <a class="dropdown-item" href="#"> Terminarz zawodów </a>
+                        <a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
+                        
+                        <div class="dropdown-divider"></div>
+                        
+                        <a class="dropdown-item" href="#"> Sylwetki zawodników </a>
+                        <a class="dropdown-item" href="#"> Skocznie narciarskie </a>
+                    
+                    </div>
+                    
+                </li> -->
+                
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"> Zdjęcia </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#"> Wywiady </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Kontakt </a>
+                </li> -->
+            
+            <!-- </ul> -->
+        
+            <!-- <form class="form-inline">
+            
+                <input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
+                <button class="btn btn-light" type="submit">Znajdź</button>
+            
+            </form> -->
+        
+        <!-- </div> -->
+    
+    </nav>
+
+</header>
 <div class="wrapper">
 	<div class="container">
 		<h1>Welcome</h1>
