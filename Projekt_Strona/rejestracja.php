@@ -12,7 +12,7 @@
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge">
 	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="login.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
 
 	<style>
@@ -42,78 +42,76 @@
 </head>
 
 <body>
-
-	<header>
+<header>
 	
-		<nav class="navbar navbar-custom navbar-expand-md">
+    <nav class="navbar navbar-custom navbar-expand-md">
     
-        	<a style="color: #ffffff" class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">Flashcards.com</a> <!--obrazek sie zawsze wyswietla-->
+        <a style="color: #ffffff" class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">Flashcards.com</a> <!--obrazek sie zawsze wyswietla-->
         
-			<button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
-            	<span class="navbar-toggler-icon"></span>
-        	</button>
-		
-			<div class="collapse navbar-collapse" id="mainmenu">
-			
-				<ul class="navbar-nav">
-				
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Home </a>
-					</li>
+        <!-- <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="mainmenu">
+        
+            <ul class="navbar-nav"> -->
+            
+                <!-- <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="#"> Home </a>
+                </li> -->
 
-                    <li class="nav-item">
-						<a class="nav-link" href="profile.php"> Profile </a>
-					</li>
+                <!-- <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
+                </li> -->
+<!-- 
+                <li class="nav-item">
+                    <a style="color: #ffffff" class="nav-link" href="logOut.php"> Log out </a>
+                </li> -->
+                
+                
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
+                    
+                    <div class="dropdown-menu" aria-labelledby="submenu">
+                    
+                        <a class="dropdown-item" href="#"> Terminarz zawodów </a>
+                        <a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
+                        
+                        <div class="dropdown-divider"></div>
+                        
+                        <a class="dropdown-item" href="#"> Sylwetki zawodników </a>
+                        <a class="dropdown-item" href="#"> Skocznie narciarskie </a>
+                    
+                    </div>
+                    
+                </li> -->
+                
 
-                    <li class="nav-item">
-						<a class="nav-link" href="logOut.php"> Log out </a>
-					</li>
-					
-					
-					<!-- <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-expanded="false" id="submenu" aria-haspopup="true"> Zawody </a>
-						
-						<div class="dropdown-menu" aria-labelledby="submenu">
-						
-							<a class="dropdown-item" href="#"> Terminarz zawodów </a>
-							<a class="dropdown-item" href="#"> Ranking Pucharu Świata </a>
-							
-							<div class="dropdown-divider"></div>
-							
-							<a class="dropdown-item" href="#"> Sylwetki zawodników </a>
-							<a class="dropdown-item" href="#"> Skocznie narciarskie </a>
-						
-						</div>
-						
-					</li> -->
-					
-
-					<!-- <li class="nav-item">
-						<a class="nav-link" href="#"> Zdjęcia </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link disabled" href="#"> Wywiady </a>
-					</li>
-					
-					<li class="nav-item">
-						<a class="nav-link" href="#"> Kontakt </a>
-					</li> -->
-				
-				</ul>
-			
-				<!-- <form class="form-inline">
-				
-					<input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
-					<button class="btn btn-light" type="submit">Znajdź</button>
-				
-				</form> -->
-			
-			</div>
-		
-		</nav>
-	
-	</header>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#"> Zdjęcia </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#"> Wywiady </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Kontakt </a>
+                </li> -->
+            
+            <!-- </ul> -->
+        
+            <!-- <form class="form-inline">
+            
+                <input class="form-control mr-1" type="search" placeholder="Wyszukaj" aria-label="Wyszukaj">
+                <button class="btn btn-light" type="submit">Znajdź</button>
+            
+            </form> -->
+        
+        <!-- </div> -->
+    
+    </nav>
+</header>
 
 	<!-- Option 1: Bootstrap Bundle with Popper-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -139,7 +137,9 @@ if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.ph
     $result = $prep -> get_result();
 
     if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> rejestracja nie powinna się udać
-        echo"Podany login jest już zajęty :(";
+		?><h2><br>The given login is already taken :(</h2>
+		<?php
+        //echo"The given login is already taken :(";
         show_form();
     }
     else{ // login nie jest zajęty => tworzymy konto 
@@ -149,9 +149,10 @@ if(isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.ph
         $prep -> bind_param('ss',$_POST['re_login'], $hash_pass); 
         $result = $prep -> execute(); // tu się wykona insert
         if($result){//jeśli się udało
-            echo "Konto zostało utworzone! Możesz się zalogować"; 
+			?><h1><br>Account has been created! You can log in</h1><?php
+            // echo "Account has been created! You can log in"; 
             echo "<form method=post action=logowanie.php>";
-            echo "<input type=submit value='Powrót do logowania'>";
+            echo "<input type=submit value='Back to the login page'>";
             echo "</form>";
             //header("Location: logowanie.php"); //tu przechodzimy do kolejnego skryptu
         }
@@ -162,13 +163,45 @@ else{
 }
 
 function show_form(){
-    echo "<form method=post action=rejestracja.php>";
-    echo "<input name=re_login required=\"required\">Login</br>"; 
-    echo "<input type=password name=re_pass required=\"required\">Haslo</br>";
-    echo "<input type=submit value=Zarejestruj>";
-    echo "</form>";
+	?>
+	<div class="wrapper">
+	<div class="container">
+		<h1>Registration</h1>
 
-    echo "<a href=\"logowanie.php\">Powrót na stronę główną</a>";
+		<form id="register-form" class="form" action="rejestracja.php" method="post">        
+			<input type="text" name="re_login" id="username" required="required" placeholder="Username">
+			<input type="password" name="re_pass" id="password" required="required" placeholder="Password">
+			<button type="submit" name="register" id="register-button">Register</button>
+            <br>
+            <br>
+            <div id="register-link" >
+            <a href="logowanie.php">Back to the login page</a>
+            </div>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+	
+	<?php
+    // echo "<form method=post action=rejestracja.php>";
+    // echo "<input name=re_login required=\"required\">Login</br>"; 
+    // echo "<input type=password name=re_pass required=\"required\">Haslo</br>";
+    // echo "<input type=submit value=Zarejestruj>";
+    // echo "</form>";
+
+    // echo "<a href=\"logowanie.php\">Powrót na stronę główną</a>";
 }
 
 ?>

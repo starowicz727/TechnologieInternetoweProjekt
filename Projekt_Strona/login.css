@@ -10,6 +10,21 @@
 
 /* <style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
 * { */
+
+h1
+{
+  font-size: 36px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+}
+h2
+{
+  font-size: 36px;
+  font-weight: 400;
+  color: #f04c8c;
+  text-align: center;
+}
 .navbar
 {
   min-height: 57px;
