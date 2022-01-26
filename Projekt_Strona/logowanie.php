@@ -5,6 +5,32 @@ if(isset($_SESSION["login"])){ //jesli użytkownik sie już wcześniej zalogowa�
     exit;
 }
 ?>
+<?php
+
+if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
+{
+    require_once("connect.php"); // łączymy się z bazą danych
+
+    $sql = "select * from users where login=? and password=?";
+    $prep = $conn -> prepare($sql);
+    $hash_pass = sha1($_POST['frm_pass']);
+    $prep -> bind_param('ss',$_POST['frm_login'], $hash_pass); 
+    $prep -> execute(); // tu się wykona select
+    $result = $prep -> get_result();
+
+    if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> logowanie powinno się udać
+        //session_start();
+        $_SESSION["login"]= $_POST["frm_login"];
+        header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
+    }
+    // else{
+    //     //echo "";
+    //     //$_POST["frm_login"] = "hfbsbf";
+        // 
+    //     //echo "<br><h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
+    // }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="pl">
@@ -233,7 +259,6 @@ if(isset($_SESSION["login"])){ //jesli użytkownik sie już wcześniej zalogowa�
 
 </body>
 </html>
-
 <?php
 
 if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.php nie byl uruchomiony po raz pierwszy
@@ -247,16 +272,15 @@ if(isset($_POST["frm_login"]) && isset($_POST["frm_pass"])) //jeślii logowanie.
     $prep -> execute(); // tu się wykona select
     $result = $prep -> get_result();
 
-    if($row = $result -> fetch_assoc() != null){ // jeśli select nie zwrócił null => takie konto istnieje=> logowanie powinno się udać
-        //session_start();
-        $_SESSION["login"]= $_POST["frm_login"];
-        header("Location: logowanie_ok.php"); //tu przechodzimy do kolejnego skryptu
-    }
-    else{
-        //echo "";
-        //$_POST["frm_login"] = "hfbsbf";
+    if(!($row = $result -> fetch_assoc() != null)){ // jeśli select nie zwrócił null => takie konto istnieje=> logowanie powinno się udać
         ?><br><h2>Invalid username or password</h2><?php
-        //echo "<br><h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
     }
+    // else{
+    //     //echo "";
+    //     //$_POST["frm_login"] = "hfbsbf";
+    //     
+    //     //echo "<br><h1 class=\"text-center text-danger\">Invalid username or password</h1>";        
+    // }
 }
 ?>
+
