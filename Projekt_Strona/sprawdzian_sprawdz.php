@@ -97,7 +97,7 @@ if ($result == false) {
         <div class="container">
             <div class="answer__heading">
                 <div class="answer__first" style="background-color: #A0CFEF;">
-                    <span>Term Definition</span>
+                    <span>Term</span>
                 </div>
                 <div class="answer__second" style="background-color: #A0CFEF;">
                     <span>Definition</span>

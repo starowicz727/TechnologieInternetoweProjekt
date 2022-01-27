@@ -85,9 +85,9 @@ function show_categ_form()
         <div class="new-folder">
             <div class="container">
                 <form action="dodaj_kategorie.php" method="post">
-                    <label for="frm_name_categ">Nazwa folderu</label>
+                    <label for="frm_name_categ">Folder name</label>
                     <input class="new-folder-input" type="text" name="frm_name_categ" required>
-                    <input class="new-folder-submit" type="submit" value="Stwórz">
+                    <input class="new-folder-submit" type="submit" value="Create">
                 </form>
             </div>
         </div>

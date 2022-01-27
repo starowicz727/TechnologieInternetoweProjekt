@@ -64,7 +64,7 @@ if (!isset($_SESSION["login"])) { //jesli użytkownik sie nie zalogował
     <div class="container">
         <div class="account__wrapper">
             <div class="account__heading">
-                <h2>Your account :)</h2>
+                <h1>Your account :)</h1>
             </div>
             <div class="account__username">
                 <h3>Login: <?= $_SESSION["login"] ?></h3>
