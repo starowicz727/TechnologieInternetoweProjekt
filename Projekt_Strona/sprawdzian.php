@@ -123,7 +123,7 @@ if ($result == false) {
         <div class="touchstone">
             <div class="container">
                 <div class="touchstone__error">
-                    <p style="text-align: center;">Aby utworzyć sprawdzian, najpierw musisz dodać fiszki do folderu</p>
+                    <p style="text-align: center;">To create a quiz, you first need to add flashcards to this folder</p>
                 </div>
             </div>
         </div>
