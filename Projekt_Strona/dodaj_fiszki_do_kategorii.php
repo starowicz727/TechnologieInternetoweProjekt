@@ -186,7 +186,7 @@ if (isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) //jelsi d
         <div class="delete-flashcrad__wrapper">
             <form method=post action=usun_kategorie.php>
                 <input type='hidden' name=cat_delete value="<?= $_SESSION["category_last_id"] ?>">
-                <input type=submit value='Usuń ten folder'>
+                <input type=submit value='Delete this folder'>
             </form>
         </div>
     </div>
