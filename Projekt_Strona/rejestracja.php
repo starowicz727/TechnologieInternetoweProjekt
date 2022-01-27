@@ -13,36 +13,21 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 <header>
 
+<header>
     <nav class="navbar navbar-custom navbar-expand-md">
-        <a style="color: #ffffff" class="navbar-brand" href="logowanie_ok.php">
-            <img src="img/logo.png" width="30" height="30"
-                 class="d-inline-block mr-1 align-bottom"
-                 alt="">Flashcards.com</a>
-        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false"
-                aria-label="Przełącznik nawigacji">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainmenu">
-            <ul class="navbar-nav">
-                <li class="nav-item disabled">
-                    <a style="color: #ffffff" class="nav-link" href="logowanie_ok.php"> Home </a>
-                </li>
-                <li class="nav-item disable">
-                    <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
-                </li>
-                <li class="nav-item disable">
-                    <a style="color: #ffffff" class="nav-link" href="LogOut.php"> Log out </a>
-                </li>
-            </ul>
+        <a style="color: #ffffff" class="navbar-brand" href="#">
+            <img src="img/logo.png" width="30" height="30" class="d-inline-block mr-1 align-bottom" alt="">Flashcards.com</a>
     </nav>
 
 </header>
+
+
 
 <script src="js/bootstrap.min.js"></script>
 
@@ -87,7 +72,7 @@ if (isset($_POST["re_login"]) && isset($_POST["re_pass"])) //jelsi rejestracja.p
 function show_form()
 {
     ?>
-    <div class="wrapper">
+    <div class="login-wrapper">
         <div class="container">
             <h1>Registration</h1>
 
