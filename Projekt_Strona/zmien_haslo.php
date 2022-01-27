@@ -17,39 +17,71 @@
 </head>
 
 <body>
+
 <header>
-    <nav class="navbar navbar-dark bg-secondary navbar-expand-md">
-        <a class="navbar-brand" href="#"><img src="img/logo.png" width="30" height="30"
-                                              class="d-inline-block mr-1 align-bottom" alt=""> Fiszki.pl</a>
-        <!--obrazek sie zawsze wyswietla-->
+    <nav class="navbar navbar-custom navbar-expand-md">
+        <a style="color: #ffffff" class="navbar-brand" href="logowanie_ok.php">
+            <img src="img/logo.png" width="30" height="30"
+                 class="d-inline-block mr-1 align-bottom"
+                 alt="">Flashcards.com</a>
+        <button class="navbar-toggler ml-auto custom-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false"
+                aria-label="Przełącznik nawigacji">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainmenu">
+            <ul class="navbar-nav">
+                <li class="nav-item disable">
+                    <a style="color: #ffffff" class="nav-link" href="logowanie_ok.php"> Home </a>
+                </li>
+                <li class="nav-item disable">
+                    <a style="color: #ffffff" class="nav-link" href="profile.php"> Profile </a>
+                </li>
+                <li class="nav-item disable">
+                    <a style="color: #ffffff" class="nav-link" href="LogOut.php"> Log out </a>
+                </li>
+            </ul>
     </nav>
 </header>
-<!-- <fieldset> -->
-<div id="login">
-    <h3 class="text-center text-white pt-5"></h3>
-    <div class="container">
-        <div id="login-row" class="row justify-content-center align-items-center">
-            <div id="login-column" class="col-md-6">
-                <div id="login-box" class="col-md-12">
-                    <form id="login-form" class="form" action="zmien_haslo.php" method="post">
-                        <h3 class="text-center text-info">Reset your password</h3>
-                        <div class="form-group">
-                            <label for="password" class="text-info">New password:</label><br>
-                            <input type="password" name="frm_pass1" id="username" class="form-control"
-                                   required="required">
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="text-info">Repeat new password:</label><br>
-                            <input type="password" name="frm_pass2" id="password" class="form-control"
-                                   required="required">
-                        </div>
-                        <div class="form-group">
-                            <!-- <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
-                            <input type="submit" name="submit" class="btn btn-info btn-md" value="Reset">
-                        </div>
-                    </form>
 
-                </div>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+<div class="utility-form">
+    <div class="container">
+        <div class="utility-form__wrapper">
+            <!-- <div class="utility-form__folder-name">
+               
+            </div> -->
+            <div class="utility-form__form">
+                <form form id="login-form" class="form" action="zmien_haslo.php" method="post">
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__label">
+                            <label for="frm_flash_term">New password</label>
+                        </div>
+                        <div class="utility-form__form__single__input">
+                            <!-- <input name=frm_flash_term required=\"required\"> -->
+                            
+                            <input type="password" name="frm_pass1" id="username" required="required">
+                        </div>
+                    </div>
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__label">
+                            <label for="frm_flash_def">Repeat password</label>
+                        </div>
+                        <div class="utility-form__form__single__input">
+                            <!-- <input name=frm_flash_def required=\"required\"> -->
+                            
+                            <input type="password" name="frm_pass2" id="password" required="required">
+                        </div>
+                    </div>
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__submit">
+                            <input type="submit" name="submit" value="Reset">
+                            
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -83,16 +115,6 @@ echo "<h1 class=\"text-center text-danger\">Both passwords must be the same</h1>
 }
 
 ?>
-
-<!-- Option 1: Bootstrap Bundle with Popper-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-
-<!-- gdyby to powyzej nie dzialalo -->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script> -->
-
 <script src="js/bootstrap.min.js"></script>
 
 </body>
