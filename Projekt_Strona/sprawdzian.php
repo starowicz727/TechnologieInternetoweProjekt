@@ -92,8 +92,12 @@ if ($result == false) {
     echo "bledne polecenie sql" . $sql;
     exit;
 } else {
-    if (($rekord = $result->fetch_assoc()) != null) { //jesli mamy chociaz jedna fiszke ?>
-        <div class="touchstone">
+	$index=0;
+    if (($rekord = $result->fetch_assoc()) != null) { //jesli mamy chociaz jedna fiszke 
+		
+	?>
+       
+	   <div class="touchstone">
             <div class="container">
                 <div class="touchstone__form">
                     <form action="sprawdzian_sprawdz.php" method="post" autocomplete="off">
@@ -102,14 +106,18 @@ if ($result == false) {
                         </div>
                         <div class="touchstone__quiz">
                             <span><?= $rekord["term"] ?></span>
-                            <input type=text name="<?= $rekord["term"] ?>" required="required">
+                            <input type=text name="<?= $index ?>" required="required">
                         </div>
-                        <?php while (($rekord = $result->fetch_assoc()) != null): ?>
+                        <?php 
+						$index +=1;
+						while (($rekord = $result->fetch_assoc()) != null): ?>
                             <div class="touchstone__quiz">
                                 <span><?= $rekord["term"] ?></span>
-                                <input type=text name="<?= $rekord["term"] ?>" required="required">
+                                <input type=text name="<?= $index ?>" required="required">
                             </div>
-                        <?php endwhile; ?>
+                        <?php 
+						$index +=1;
+						endwhile; ?>
                         <div class="touchstone__quiz__submit">
                             <input type=submit value=Check>
                         </div>

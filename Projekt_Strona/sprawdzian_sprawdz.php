@@ -108,8 +108,10 @@ if ($result == false) {
             </div>
         </div>
     </div>
-    <?php while (($rekord = $result->fetch_assoc()) != null):
-        if ($rekord["definition"] == $_POST[$rekord["term"]]) {
+    <?php 
+	$index = 0;
+	while (($rekord = $result->fetch_assoc()) != null):
+        if ($rekord["definition"] == $_POST[$index]) {
             $points += 1;
             $color = '#B5E5AE';
         } else {
@@ -126,12 +128,14 @@ if ($result == false) {
                         <?= $rekord["definition"] ?>
                     </div>
                     <div class="answer__third" style="background-color: <?= $color ?>">
-                        <?= $_POST[$rekord["term"]] ?>
+                        <?= $_POST[$index] ?>
                     </div>
                 </div>
             </div>
         </div>
-    <?php endwhile; ?>
+    <?php 
+	$index +=1;
+	endwhile; ?>
     <div class="answer">
         <div class="container">
             <div class="user-results">
