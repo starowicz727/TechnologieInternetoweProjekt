@@ -126,7 +126,7 @@ if ($wynik == false) {
     <div class="terms">
         <div class="container">
             <div class="terms__heading">
-                <h5>Term definition</h5>
+                <h5>Your flashcards:</h5>
             </div>
             <div class="terms__wrapper">
                 <?php while (($rekord = $wynik->fetch_assoc()) != null): ?>
