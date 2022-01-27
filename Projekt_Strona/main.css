@@ -11,6 +11,9 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
     color: black !important;
 }
+h4 {
+    color: black !important;
+}
 
 header {
     margin-bottom: 20px;
@@ -78,8 +81,8 @@ nav {
     margin: 0 auto;
     height: 100%;
     text-align: center;
-    color: white;
-}
+    color: black;
+
 }
 
 .answer .container {

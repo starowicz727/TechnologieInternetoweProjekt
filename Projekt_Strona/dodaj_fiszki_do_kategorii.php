@@ -131,10 +131,10 @@ if ($wynik == false) {
             <div class="terms__wrapper">
                 <?php while (($rekord = $wynik->fetch_assoc()) != null): ?>
                     <div class="terms__single">
-                        <div class="terms__single__title">
+                        <div class="utility-form__folder-name">
                             <?= $rekord["term"] ?>
                         </div>
-                        <div class="terms__single__definition">
+                        <div class="utility-form__folder-name">
                             <?= $rekord["definition"] ?>
                         </div>
                         <div class="terms__single__edit">
