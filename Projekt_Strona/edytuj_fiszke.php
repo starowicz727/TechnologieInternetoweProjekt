@@ -54,7 +54,7 @@
 session_start();
 require_once("connect.php"); // łączymy się z bazą danych
 $flashcard_id = $_POST["flashcard_id"];
-echo $flashcard_id;
+// echo $flashcard_id;
 $flashc_term = "";
 $flashc_def = "";
 $category_id = ""; // potrzebne żeby znowu wrócić do widoku folderu z już wyedytowaną fiszką
@@ -70,13 +70,54 @@ if ($wynik == false) {
     $flashc_def = $wynik["definition"];
     $category_id = $wynik["category_id"];
 }
+?>
+<div class="utility-form">
+    <div class="container">
+        <div class="utility-form__wrapper">
+            <!-- <div class="utility-form__folder-name">
+               
+            </div> -->
+            <div class="utility-form__form">
+                <form method=post action=edytuj_fiszke.php>
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__label">
+                            <label for="frm_flash_term">Term</label>
+                        </div>
+                        <div class="utility-form__form__single__input">
+                            <!-- <input name=frm_flash_term required=\"required\"> -->
+                            <input name=frm_flash_term value="<?=$flashc_term?>" required="required">
+                        </div>
+                    </div>
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__label">
+                            <label for="frm_flash_def">Definition</label>
+                        </div>
+                        <div class="utility-form__form__single__input">
+                            <!-- <input name=frm_flash_def required=\"required\"> -->
+                            <input name=frm_flash_def value="<?=$flashc_def?>" required="required">
+                        </div>
+                    </div>
+                    <div class="utility-form__form__single">
+                        <div class="utility-form__form__single__submit">
+                            <input type=submit value=Edit>
+                            <input type='hidden' name=flashcard_id value="<?=$flashcard_id?>">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-echo "<form method=post action=edytuj_fiszke.php>";
-echo "<input name=frm_flash_term value=" . $flashc_term . " required=\"required\">Term</br>";
-echo "<input name=frm_flash_def value=" . $flashc_def . " required=\"required\">Definition</br>";
-echo "<input type='hidden' name=flashcard_id value=" . $flashcard_id . ">";
-echo "<input type=submit value=Edit>";
-echo "</form>";
+
+
+<?php
+// echo "<form method=post action=edytuj_fiszke.php>";
+// echo "<input name=frm_flash_term value=" . $flashc_term . " required=\"required\">Term</br>";
+// echo "<input name=frm_flash_def value=" . $flashc_def . " required=\"required\">Definition</br>";
+// echo "<input type='hidden' name=flashcard_id value=" . $flashcard_id . ">";
+// echo "<input type=submit value=Edit>";
+// echo "</form>";
 
 if (isset($_POST["frm_flash_term"]) && isset($_POST["frm_flash_def"])) {
     $sql = "update flashcards set term=?, definition=? where id=?";
