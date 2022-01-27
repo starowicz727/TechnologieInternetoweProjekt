@@ -5,7 +5,13 @@ header {
 h1 {
     font-size: 36px;
     font-weight: 400;
-    color: #ffffff;
+    color: black;
+    text-align: center;
+}
+h11 {
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
     text-align: center;
 }
 
@@ -84,7 +90,7 @@ body :-ms-input-placeholder {
     margin: 0 auto;
     height: 100%;
     text-align: center;
-    background: #887cf4;
+    background: transparent;
 }
 
 @media (max-width: 576px) {
@@ -117,7 +123,7 @@ form input {
     display: block;
     text-align: center;
     font-size: 18px;
-    color: white;
+    color: black;
     -webkit-transition-duration: 0.25s;
     transition-duration: 0.25s;
     font-weight: 300;
