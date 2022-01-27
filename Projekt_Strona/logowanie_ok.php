@@ -21,8 +21,9 @@ if (!isset($_SESSION["login"])) { //jesli użytkownik sie nie zalogował
         <meta http-equiv="X-Ua-Compatible" content="IE=edge">
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="logowanie_ok_style.css">
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="logowanie_ok_style.css">
+
     </head>
     <body>
     <header>
@@ -57,12 +58,14 @@ if (!isset($_SESSION["login"])) { //jesli użytkownik sie nie zalogował
                     <h1>Hello <?php echo $_SESSION["login"]; ?></h1>
                 </div>
                 <div class="flashcards-general__your-flashcards">
-                    <h2>Your flashcards:</h2>
+                    <h11>Your flashcards:</h11>
                 </div>
                 <div class="flashcards-general__form">
                     <?php show_folders(); ?><br>
                     <form action="dodaj_kategorie.php" method="post">
-                        <input type=submit value='Create a new folder'>
+                        <div class="utility-form__form__single__input">
+                            <input type=submit value='Create a new folder'>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -98,25 +101,35 @@ function show_folders()
     <div class="flashcards">
         <?php while (($rekord = $wynik->fetch_assoc()) != null): ?>
             <div class="flashcards__row">
-                <div class="flashcards__row__folder"><?= $rekord['name'] ?></div>
+                <div class="utility-form__folder-name">
+                    <?= $rekord['name'] ?>
+                </div>
+                
                 <div class="flashcards__row__actions">
                     <div class="flashcards__row__actions__single">
                         <form action="dodaj_fiszki_do_kategorii.php" method="post">
-                            <input type='hidden' name="categ_id" value="<?= $rekord['id'] ?>">
-                            <input type='hidden' name="categ_id" value="<?= $rekord['id'] ?>">
-                            <input type="submit" value='Edit this folder'>
+                            <div class="utility-form__form__single__input">
+                                <input type='hidden' name="categ_id" value="<?= $rekord['id'] ?>">
+                                <input type='hidden' name="categ_id" value="<?= $rekord['id'] ?>">
+                                <input type="submit" value='Edit this folder'>
+                            </div>
+                            
                         </form>
                     </div>
                     <div class="flashcards__row__actions__single">
                         <form method="post" action="ucz_sie.php">
-                            <input type='hidden' name="categ_id" value=" <?= $rekord['id'] ?>">
-                            <input type="submit" value='Learn'>
+                            <div class="utility-form__form__single__input">
+                                <input type='hidden' name="categ_id" value=" <?= $rekord['id'] ?>">
+                                <input type="submit" value='Learn'>
+                            </div>
                         </form>
                     </div>
                     <div class="flashcards__row__actions__single">
                         <form method="post" action="sprawdzian.php">
-                            <input type='hidden' name="categ_id" value=" <?= $rekord['id'] ?>">
-                            <input type="submit" value='Test'>
+                            <div class="utility-form__form__single__input">
+                                <input type='hidden' name="categ_id" value=" <?= $rekord['id'] ?>">
+                                <input type="submit" value='Test'>
+                            </div>    
                         </form>
                     </div>
                 </div>
