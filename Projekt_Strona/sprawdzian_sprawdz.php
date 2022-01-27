@@ -155,7 +155,7 @@ if ($result == false) {
         <div class="container">
             <div class="learn-again">
                 <form method=post action=ucz_sie.php>
-                    <input type='hidden' name=categ_id value="<?= $_SESSION[" category_last_id"] ?>">
+                    <input type='hidden' name=categ_id value="<?= $_SESSION["category_last_id"] ?>">
                     <input type=submit value='Learn again'>
                 </form>
             </div>
